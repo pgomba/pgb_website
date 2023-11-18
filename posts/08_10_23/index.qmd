@@ -6,7 +6,7 @@ author:
 date: "2023-10-08"
 categories: [PLOS, R, Text-mining, The Strain on Scientific Publishing]
 twitter-card:  
-  image: "pgb_website/post/08_10_23/thumbn.jpg"
+  image: "thumbn.jpg"
   card-style: summary
 draft: FALSE
 ---
