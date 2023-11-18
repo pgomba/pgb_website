@@ -5,7 +5,9 @@ author:
     orcid: 0000-0002-3140-3326
 date: "2023-10-08"
 categories: [PLOS, R, Text-mining, The Strain on Scientific Publishing]
-image: "thumbn.jpg"
+twitter-card:  
+  image: "thumbn.jpg"
+  card-style: summary
 ---
 
 On a recent preprint ([The Strain on Scientific Publishing](https://arxiv.org/abs/2309.15884)) we used diverse methods to web-scrap and text-mine millions of scientific articles, with emphasis in editorial times and special issues.

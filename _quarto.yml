@@ -19,8 +19,9 @@ website:
   site-path: '/'
   open-graph: true
   twitter-card:
+    card-style: summary
     creator: "@pagomba"
-    image: "thumbn.jpg"
+    image: "images/profile.jpg"
 format:
   html:
     theme: 
