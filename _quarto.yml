@@ -8,6 +8,8 @@ website:
     left:
       - main.qmd
       - publications.qmd
+      - post.qmd
+      - other_outputs.qmd
       - icon: twitter
         href: https://twitter.com/pagomba
       - icon: github

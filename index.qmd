@@ -1,12 +1,22 @@
 ---
-title: "PGB - Blog"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: true
+title: "Pablo Gómez Barreiro"
+image: images/profile.jpg
+about:
+  template: trestles
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/pagomba
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/pablo-g%C3%B3mez-barreiro-a72b4059/
+    - icon: github
+      text: Github
+      href: https://github.com/pgomba
 ---
+
+## Welcome
+
+Hi there!
+
+I'm Pablo, a multi-skilled Agricultural Engineer with a Plant Breeding MSc and +10 years of experience in the Plant & Seed Science sector. Currently working as a Seed Biology Lab. Technician at the [Millennium Seed Bank](https://www.kew.org/wakehurst/whats-at-wakehurst/millennium-seed-bank) (Royal Botanic Gardens, Kew) doing laboratory maintenance, specialized training & seed science. I have a keen interest for R programming, science integrity and macro photography.\
