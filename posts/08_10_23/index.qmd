@@ -8,6 +8,7 @@ categories: [PLOS, R, Text-mining, The Strain on Scientific Publishing]
 twitter-card:  
   image: "thumbn.jpg"
   card-style: summary
+draft: FALSE
 ---
 
 On a recent preprint ([The Strain on Scientific Publishing](https://arxiv.org/abs/2309.15884)) we used diverse methods to web-scrap and text-mine millions of scientific articles, with emphasis in editorial times and special issues.
