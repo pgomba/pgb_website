@@ -1,0 +1,182 @@
+---
+title: "Text-mining a Taylor & Francis journal using R"
+author:
+  - name: Pablo Gómez Barreiro
+    orcid: 0000-0002-3140-3326
+date: "2023-10-11"
+categories: [R, rcrossref, Taylor & Francis, Text-mining, The Strain on Scientific Publishing]
+image: "thumbn.jpg"
+draft: false
+---
+
+This is the second tutorial/blog exploring some of text-mining/web-scraping methods used on the preprint ([The Strain on Scientific Publishing](https://arxiv.org/abs/2309.15884)). Head over to [Text-mining PLOS articles using R](https://pagomba-blog.netlify.app/posts/08_10_23/) to read the first instance. Today, I will be focusing on [Taylor & Francis](https://taylorandfrancis.com/) (T&F)
+
+To some extent, Taylor & Francis allows web scraping their website. To do so you have to be a subscriber to their content, have a non-commercial purpose and send a request. This can take some time, and, in the meantime, any web scraping attempts will return an **Error 403** (access forbidden). Fortunately, editorial times of scientific articles from T&F are available on [Crossref](https://www.crossref.org), and their API can be accessed with R using the package [`rcrossref`](https://CRAN.R-project.org/package=rcrossref).
+
+### Step 1: Be polite
+
+`rcrossref` encourages their users to identify themselves in every query. This is a straight forward process that is well documented [here](https://github.com/ropensci/rcrossref):
+
+[![rcrossref GitHub repository - screenshot](polite.PNG)](https://github.com/ropensci/rcrossref)
+
+After restarting your R session, is time to load all necessary libraries
+
+```{r message=FALSE}
+library(tidyverse)
+library(rcrossref)
+```
+
+### Step 2: Choosing a journal
+
+`rcrossref` is going to need a ISSN number to go fetch data. This number is usually available in the journal description page. For this example I´m going to choose the journal [Plant Ecology & Diversity](https://www.tandfonline.com/journals/tped20). The ISSNs (Print and online version) can be found on its [Journal Information](https://www.tandfonline.com/action/journalInformation?journalCode=tped20) page: 1755-0874 & 1755-1668.
+
+To get a hint of what we might find using Crossref data on this journal we can take a peak in [Scimago](https://www.scimagojr.com/). If you type in and search the journal name or the ISSNs there is some useful information. In particular, the total number of documents is of interest. The larger the number of available documents is, the longer obtaining the data from `rcrossref` will take (and it can get tedious with LARGE requests).
+
+![Total number of documents for the journal Plant Ecology & Diversity, according to Scimago - screenshot](scimago.PNG){fig-align="center"}
+
+### Step 3: Go fetch!
+
+Let´s build now the data request using R code using the `rcrossref` function `cr_works()`. I´m going to use the online ISSN (1755-1668) and select only publications published in 2015 and after. If you wish to obtain data from all publications just drop `from_pub_date="2015-01-01` from the code below. Additionally, we set the parameter `cursor` to not have a limit in number of articles by just adding an unreasonable high number. For more information on how `rcrossref` and `cr_works()` can be used head to their documentation page [here](https://docs.ropensci.org/rcrossref/index.html).
+
+```{r cache = TRUE}
+journal_info<-cr_works(filter=c(issn="1755-1668",from_pub_date="2015-01-01"),cursor = "*",cursor_max = 500000)
+```
+
+Once the code is running, it might take some minutes for the data to come back. When finished, the object `journal_info` will be a large list with 3 elements. Let´s have a look to what is inside this object on **Step 4**.
+
+![journal_info is a large list with 3 elements](journal_info.PNG){fig-align="center"}
+
+### Step4: Unboxing "journal_info"
+
+Now that we have `rcrossref` output (`journal_info`), lets have a look to the elements within. The first element is `meta`.
+
+```{r }
+journal_info$meta[1:4]
+```
+
+This is a data frame incicating we have obtained all the Crossref data available for 309 scientific publications.
+
+This information is contained in the element `data`
+
+```{r}
+
+head(journal_info$data,10)
+```
+
+For this journal, this element is a data frame of 35 columns. Notice some of the columns (e.g. `assertion`) are also data frames (inception). Have a look to what information each column has to offer. Where is the editorial data we are looking for? Well, lets take a peak to the values within the tables of the column `assertion` in row number 1
+
+```{r message=FALSE}
+
+journal_info$data$assertion[1]
+```
+
+There we go. The date values for editorial times are "hidden" in this table. Let´s clean the data to show this better
+
+```{r}
+
+received_date <- journal_info$data$assertion[1] %>%
+  as.data.frame()%>%
+  filter(name=="received")%>%
+  select(value)%>%
+  .[[1]]
+
+accepted_date <- journal_info$data$assertion[1] %>%
+  as.data.frame()%>%
+  filter(name=="accepted")%>%
+  select(value)%>%
+  .[[1]]
+
+received_date
+accepted_date
+```
+
+### Step 5: Looping to extract all journal info
+
+So far we know how to extract editorial data from one article. Let´s adapt some of the code from the PLOS blog to extract data for all articles in `journal_info`.
+
+```{r message=FALSE, results='hide'}
+final_table<-data.frame()
+count<-0
+
+for (i in 1:nrow(journal_info$data)) { #code to loop through each row of the data frame
+  
+  doi<-journal_info$data[i,1]
+  
+  reference_count<-journal_info$data[i,18] #lets add number of references too
+  
+  received_date <- journal_info$data$assertion[i] %>%
+    as.data.frame()%>%
+    filter(name=="received")%>%
+    select(value)%>%
+    .[[1]]
+  
+  if (identical(received_date,character(0))) {
+    received_date<-"Not available"
+  } else {
+    received_date<-received_date}
+  
+  accepted_date <- journal_info$data$assertion[i] %>%
+    as.data.frame()%>%
+    filter(name=="accepted")%>%
+    select(value)%>%
+    .[[1]]
+  
+  if (identical(accepted_date,character(0))) {
+    accepted_date<-"Not available"
+  } else {
+    accepted_date<-accepted_date}
+  
+  temp_df<-data.frame(i,doi,received_date,accepted_date,reference_count)
+  final_table<-bind_rows(final_table,temp_df)
+  
+  count<-count+1
+  print(count)
+  
+}
+  
+```
+
+A quick peek into final_table shows we have now some data we can use in further analysis
+
+```{r}
+head(final_table,15)
+```
+
+### Extra
+
+Extracting all scientific articles from T&F using Crossref data is possible, but you will need a list (or a vector) containing all ISSNs to be targeted. These can be obtained from Scimago, although many non-indexed journals will be missing. Then, is just a matter of wrapping the above loop into another loop moving across all ISSNs:
+
+```{r eval=FALSE}
+for (i in vector_with_ISSNS) {
+  
+  journal_info<-cr_works(filter=c(issn=i,from_pub_date="2015-01-01"),cursor = "*",cursor_max = 500000)
+  
+  for (j in journal_info$data) {
+    #### etc etc ###
+  }
+    
+}
+```
+
+ 
+::: {.callout-tip title="Tip"} 
+It is possible for Crossref to kick you out of their server after too many requests. Edit the loop to start from the last text-mined journal (e.g. `for (i in vector_with_ISSNS[200:4000]) {}`) to overcome this issue. Or, have a look to how errors can be handled with the function `tryCatch()`. 
+:::
+
+
+### References:
+
+Chamberlain S, Zhu H, Jahn N, Boettiger C, Ram K (2022). rcrossref: Client for Various 'CrossRef APIs'. R package version 1.2.0, <https://CRAN.R-project.org/package=rcrossref>.\
+\
+Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <https://pagomba-blog.netlify.app/posts/08_10_23/>
+
+Hanson, M. A., Gómez Barreiro, P., Crosetto, P., & Brockington, D. (2023). *arXiv*. The Strain on Scientific Publishing. <https://arxiv.org/abs/2309.15884>
+
+Wickham H, et al. (2019) "Welcome to the tidyverse." *Journal of Open Source Software*, 4 (43), 1686. doi: <https://doi.org/10.21105/joss.01686>
+
+```{r, echo=FALSE, results='hide'}
+time = format(Sys.time(), "%d %b %Y")
+```
+
+<br>
+Last update: `r time`
