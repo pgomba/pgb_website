@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "PGB"
+  navbar:
+    left:
+      - main.qmd
+      - publications.qmd
+      - icon: twitter
+        href: https://twitter.com/pagomba
+      - icon: github
+        href: https://github.com/pgomba
+  site-url: 'https://pgomba.github.io'
+  site-path: '/'
+      
+format:
+  html:
+    theme: 
+      light: cosmo
+      dark: darkly
+    css: styles.css
+
+editor: visual
+
