@@ -15,7 +15,7 @@ website:
         href: https://twitter.com/pagomba
       - icon: github
         href: https://github.com/pgomba
-  site-url: 'https://pgomba.github.io'
+  site-url: 'https://pgomba.github.io/pgb_website'
   site-path: '/'
   open-graph: true
   twitter-card:
