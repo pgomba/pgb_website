@@ -17,7 +17,10 @@ website:
         href: https://github.com/pgomba
   site-url: 'https://pgomba.github.io'
   site-path: '/'
-      
+  open-graph: true
+  twitter-card:
+    creator: "@pagomba"
+    image: "thumbn.jpg"
 format:
   html:
     theme: 
