@@ -10,6 +10,7 @@ website:
       - publications.qmd
       - post.qmd
       - other_outputs.qmd
+      - datasets.qmd
       - icon: twitter
         href: https://twitter.com/pagomba
       - icon: github

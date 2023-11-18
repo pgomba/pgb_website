@@ -2,6 +2,12 @@
 title: "Other Outputs"
 ---
 
+# Websites
+
+[A Scientific Review of Wild Edible Plants from the Levant](https://pgomba.github.io/Levantine_WEPs/). Data summary of 414 Levantine taxa with edible records in the scientific literature
+
+[Árboles autóctonos de la República Dominicana: Conservación de semillas y propagación para una reforestación sustentable](https://pgomba.github.io/arbolesRD/). Online book with technical information and images of important native trees from the Dominican Republic \[Spanish\]
+
 # Blogs
 
 [Deceiving dispersal: Lying for a living](https://www.kew.org/read-and-watch/deceiving-seed-dispersal)
@@ -10,7 +16,7 @@ title: "Other Outputs"
 
 # Featured images
 
-Oecologia's June 21 Cover. [PDF](https://github.com/pgomba/home/raw/main/static/docs/June%202021%20cover.pdf)
+Oecologia's June 21 Cover. [PDF](https://github.com/pgomba/pgb_website/blob/main/attach/June%202021%20cover.pdff)
 
 ![](images/oeco.PNG)
 
