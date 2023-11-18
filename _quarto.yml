@@ -3,10 +3,9 @@ project:
   output-dir: docs
 
 website:
-  title: "PGB"
+  title: "Pablo Gómez Barreiro"
   navbar:
     left:
-      - main.qmd
       - publications.qmd
       - post.qmd
       - other_outputs.qmd
