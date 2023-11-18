@@ -9,4 +9,7 @@ listing:
   filter-ui: false
 page-layout: full
 title-block-banner: true
+twitter-card:
+    creator: "@pagomba"
+    image: "thumbn.jpg"
 ---
