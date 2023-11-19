@@ -7,6 +7,11 @@ date: "2023-10-11"
 categories: [R, rcrossref, Taylor & Francis, Text-mining, The Strain on Scientific Publishing]
 image: "thumbn.jpg"
 draft: false
+comments:
+  utterances: 
+    repo: quarto-dev/quarto-web
+    theme: github-light
+    issue-term: title
 ---
 
 This is the second tutorial/blog exploring some of text-mining/web-scraping methods used on the preprint ([The Strain on Scientific Publishing](https://arxiv.org/abs/2309.15884)). Head over to [Text-mining PLOS articles using R](https://pagomba-blog.netlify.app/posts/08_10_23/) to read the first instance. Today, I will be focusing on [Taylor & Francis](https://taylorandfrancis.com/) (T&F)
@@ -158,11 +163,9 @@ for (i in vector_with_ISSNS) {
 }
 ```
 
- 
-::: {.callout-tip title="Tip"} 
-It is possible for Crossref to kick you out of their server after too many requests. Edit the loop to start from the last text-mined journal (e.g. `for (i in vector_with_ISSNS[200:4000]) {}`) to overcome this issue. Or, have a look to how errors can be handled with the function `tryCatch()`. 
+::: {.callout-tip title="Tip"}
+It is possible for Crossref to kick you out of their server after too many requests. Edit the loop to start from the last text-mined journal (e.g. `for (i in vector_with_ISSNS[200:4000]) {}`) to overcome this issue. Or, have a look to how errors can be handled with the function `tryCatch()`.
 :::
-
 
 ### References:
 
@@ -178,5 +181,4 @@ Wickham H, et al. (2019) "Welcome to the tidyverse." *Journal of Open Source Sof
 time = format(Sys.time(), "%d %b %Y")
 ```
 
-<br>
-Last update: `r time`
+<br> Last update: `r time`

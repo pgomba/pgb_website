@@ -7,6 +7,11 @@ date: "2023-10-18"
 categories: [Biology Open, R, Text-mining, The Strain on Scientific Publishing, Web-scraping]
 image: "thumbn.jpg"
 draft: false
+comments:
+  utterances: 
+    repo: quarto-dev/quarto-web
+    theme: github-light
+    issue-term: title
 ---
 
 This is the third installment of a series of blog/tutorials exploring some of the text-mining/web-scraping methods used on the preprint ([The Strain on Scientific Publishing](https://arxiv.org/abs/2309.15884)). Head over to [Text-mining PLOS articles using R](https://pagomba-blog.netlify.app/posts/08_10_23/) to read the first instance, and here to catch up with the second one: [Text-mining a Taylor & Francis journal using R](https://pagomba-blog.netlify.app/posts/11_10_23/).

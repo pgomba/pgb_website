@@ -9,7 +9,7 @@ draft: FALSE
 comments:
   utterances: 
     repo: quarto-dev/quarto-web
-    theme: dark-blue
+    theme: github-light
     issue-term: title
 ---
 
