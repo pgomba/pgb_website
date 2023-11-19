@@ -6,6 +6,9 @@ website:
   title: "Pablo Gómez Barreiro"
   favicon: images/favicon.ico
   navbar:
+    right:
+      - icon: rss
+        href: index.xml
     left:
       - publications.qmd
       - post.qmd
