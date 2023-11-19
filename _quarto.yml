@@ -8,7 +8,7 @@ website:
   navbar:
     right:
       - icon: rss
-        href: docs/post.xml
+        href: post.xml
     left:
       - publications.qmd
       - post.qmd
