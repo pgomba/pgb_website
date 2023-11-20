@@ -5,6 +5,7 @@ author:
     orcid: 0000-0002-3140-3326
 date: "2023-10-08"
 categories: [PLOS, R, Text-mining, The Strain on Scientific Publishing]
+image: "thumbn.jpg"
 draft: FALSE
 comments:
   utterances: 
@@ -334,9 +335,3 @@ Hanson, M. A., Gómez Barreiro, P., Crosetto, P., & Brockington, D. (2023). *arX
 Wickham H (2022). rvest: Easily Harvest (Scrape) Web Pages. R package version 1.0.3. <https://CRAN.R-project.org/package=rvest>
 
 Wickham H, et al. (2019) "Welcome to the tidyverse." *Journal of Open Source Software*, 4 (43), 1686. doi: <https://doi.org/10.21105/joss.01686>
-
-```{r, echo=FALSE, results='hide'}
-time = format(Sys.time(), "%d %b %Y")
-```
-
-Last update: `r time`
