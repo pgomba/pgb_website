@@ -12,6 +12,7 @@ website:
     left:
       - publications.qmd
       - post.qmd
+      - r_Packages.qmd
       - other_outputs.qmd
       - datasets.qmd
       - icon: twitter
