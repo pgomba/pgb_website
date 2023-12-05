@@ -81,6 +81,6 @@
     "href": "r_Packages.html",
     "title": "R Packages",
     "section": "",
-    "text": "MDPIexploreR\n        A series of functions to web scrap MDPI journals and obtain information on editorial times (e.g. articles turnaround times), special issues information and types of articles. Includes a series of functions to plot the information and several datasets to play with"
+    "text": "MDPIexploreR\n      \n        A series of functions to web scrap MDPI journals and obtain information on editorial times (e.g. articles turnaround times), special issues information and types of articles. Includes a series of functions to plot the information and several datasets to play with"
   }
 ]
