@@ -19,7 +19,6 @@
 
 
 
-
 <p>This is the third installment of a series of blog/tutorials exploring some of the text-mining/web-scraping methods used on the preprint (<a href="https://arxiv.org/abs/2309.15884">The Strain on Scientific Publishing</a>). Head over to <a href="https://pagomba-blog.netlify.app/posts/08_10_23/">Text-mining PLOS articles using R</a> to read the first instance, and here to catch up with the second one: <a href="https://pagomba-blog.netlify.app/posts/11_10_23/">Text-mining a Taylor &amp; Francis journal using R</a>.</p>
 <p>This time is all about using web-scraping to obtain editorial information from scientific journals. <a href="https://journals.biologists.com/bio">Biology Open</a>, an Open Access journal from <a href="https://journals.biologists.com">The Company of Biologists</a>, have kindly offered themselves for the test. To the task at hand!</p>
 <section id="step-1-finding-the-nodes-of-interest" class="level3">
@@ -842,7 +841,6 @@ font-style: inherit;">10</span>)</span></code></pre></div>
 
 
 
-
 <p>This is the second tutorial/blog exploring some of text-mining/web-scraping methods used on the preprint (<a href="https://arxiv.org/abs/2309.15884">The Strain on Scientific Publishing</a>). Head over to <a href="https://pagomba-blog.netlify.app/posts/08_10_23/">Text-mining PLOS articles using R</a> to read the first instance. Today, I will be focusing on <a href="https://taylorandfrancis.com/">Taylor &amp; Francis</a> (T&amp;F)</p>
 <p>To some extent, Taylor &amp; Francis allows web scraping their website. To do so you have to be a subscriber to their content, have a non-commercial purpose and send a request. This can take some time, and, in the meantime, any web scraping attempts will return an <strong>Error 403</strong> (access forbidden). Fortunately, editorial times of scientific articles from T&amp;F are available on <a href="https://www.crossref.org">Crossref</a>, and their API can be accessed with R using the package <a href="https://CRAN.R-project.org/package=rcrossref"><code>rcrossref</code></a>.</p>
 <section id="step-1-be-polite" class="level3">
@@ -1362,7 +1360,6 @@ Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <a href="https://
   <dc:creator>Pablo Gómez Barreiro</dc:creator>
   <link>https://pgomba.github.io/pgb_website/posts/08_10_23/index.html</link>
   <description><![CDATA[ 
-
 
 
 

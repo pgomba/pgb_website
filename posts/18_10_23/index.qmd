@@ -19,7 +19,7 @@ This is the third installment of a series of blog/tutorials exploring some of th
 
 This time is all about using web-scraping to obtain editorial information from scientific journals. [Biology Open](https://journals.biologists.com/bio), an Open Access journal from [The Company of Biologists](https://journals.biologists.com), have kindly offered themselves for the test. To the task at hand!
 
-### Step 1: Finding the nodes of interests
+### Step 1: Finding the nodes of interest
 
 Before jumping into "large scale" web-scraping, is best to optimize for one target and optimize from there. For this test I´v chosen the article [Identification of SSR markers closely linked to the yellow seed coat color gene in heading Chinese cabbage (*Brassica rapa* L. ssp. *pekinensis*)](https://journals.biologists.com/bio/article/6/2/278/1846/Identification-of-SSR-markers-closely-linked-to?searchresult=1#9229331). To show the editorial data of this paper we need to click on the website button `Article history`.
 
