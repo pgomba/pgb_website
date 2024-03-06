@@ -9,7 +9,8 @@ image: "thumbn.jpg"
 draft: false
 comments:
   utterances: 
-    repo: quarto-dev/quarto-web
+    repo: pgomba/pgb_website
+    label: comment
     theme: github-light
     issue-term: title
 ---
