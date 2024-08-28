@@ -9,7 +9,7 @@ image: "thumbn.jpg"
 draft: false
 comments:
   utterances: 
-    repo: pgomba/pgb_websit
+    repo: pgomba/pgb_website
     label: comment
     theme: github-light
     issue-term: title
