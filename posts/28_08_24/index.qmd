@@ -1,5 +1,5 @@
 ---
-title: "The golden era of *Ten simple rules* articles"
+title: "The golden era of Ten simple rules articles"
 author:
   - name: Pablo Gómez Barreiro
     orcid: 0000-0002-3140-3326
