@@ -32,6 +32,8 @@ format:
       light: cosmo
       dark: darkly
     css: styles.css
+    code-fold: true
+    code-summary: "Show the code"
 
 editor: visual
 

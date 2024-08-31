@@ -15,11 +15,11 @@ comments:
     issue-term: title
 ---
 
-Top 10 lists have dominated the internet for ages, and academic publishing is no exception. My Twitter feed is proof of this; almost daily, I see someone retweeting a paper titled \"Ten Simple Rules to...\" This made me curious about the origin of these papers and whether they were a sudden trend or just a passing phase. What I initially thought would be a straightforward answer turned into an unexpectedly enjoyable internet adventure.
+Top 10 lists have dominated the internet for ages, and academic publishing is no exception. My Twitter feed is proof of this; with frequent "Ten Simple Rules to..." being retweeted left and right. This made me curious about the origin of these papers and whether they were a sudden trend or just a passing phase. I did not jump into this data search with many expectations, but what I initially thought would be a simple answer turned into an unexpectedly enjoyable internet adventure.
 
 ### The data, and the cleaning
 
-Using [Dimensions](https://www.dimensions.ai/), I downloaded all available data for articles containing the phrases "10 simple rules" and "Ten simple rules." It's not a perfect starting point, but I'll clean the data later. If you'd like to follow along or explore on your own, you can find the original .csv file here: [LINK](https://github.com/pgomba/pgb_website/blob/main/posts/28_08_24/Dimensions-Publication-2024-08-24_19-59-19.csv). Just remember to skip the first row when loading the file in R. After that, it's simply a matter of filtering out titles that don't contain our target keywords
+Using [Dimensions](https://www.dimensions.ai/), I downloaded all available data for articles containing the phrases "10 simple rules" and "Ten simple rules." It's not a perfect starting point, but I'll clean the data later. If you'd like to follow along or explore on your own, you can find the original .csv file here: [LINK](https://github.com/pgomba/pgb_website/blob/main/posts/28_08_24/Dimensions-Publication-2024-08-24_19-59-19.csv). Just remember to skip the first row when loading the file in R. After that, it's simply a matter of filtering out titles that don't contain the target keywords
 
 ```{r message = FALSE, results='hide'}
 library(tidyverse)
@@ -34,7 +34,7 @@ head(clean_data,10)
 
 ### The original sin
 
-Finding when all this trend started is easy:
+Arranging data by publication year shows that the first known paper (according to Dimensions) with "Ten simple rules" in its title was published back in 1988, the same year Disney released *Who Framed Roger Rabbit?* In other words, Christopher Lloyd and M.C. Budden *et al*. were in a pioneering phase simultaneously.
 
 ```{r eval=FALSE}
 library(tidyverse)
@@ -45,13 +45,13 @@ clean_data%>%
   head(5)
 ```
 
-This means that the first known paper (according to Dimensions) with "Ten simple rules" in its title was published back in 1988, the same year Disney released *Who Framed Roger Rabbit?* In other words, Christopher Lloyd and M.C. Budden *et al*. were in a pioneering phase simultaneously. The paper, titled [*Ten Simple Rules for Improving Advertising Programs in the Health Care Industry*](https://www.tandfonline.com/doi/abs/10.1300/J043v03n01_06)*,* was the first of its kind. I'd love to provide more details about these rules, but in 1988, academia hadn't yet discovered the wonders of open access, and modern publishers still believe in gatekeeping the contents of a 36-year-old article.
+The paper, titled [*Ten Simple Rules for Improving Advertising Programs in the Health Care Industry*](https://www.tandfonline.com/doi/abs/10.1300/J043v03n01_06)*,* was the first of its kind. I'd love to provide more details about these rules, but in 1988, academia hadn't yet discovered the wonders of open access, and modern publishers still believe in gatekeeping the contents of a 36-year-old article.
 
-The second paper with a similar title had to wait a whopping 17 years before making its appearance in 2005. Philip E. Bourne, the Editor-in-Chief of *PLOS Computational Biology*, was the mastermind behind the fitting title *Ten Simple Rules for Getting Published*, which surely can be credited with truly starting the "10 simple rules" trend, setting off a snowball effect in academic publishing.
+The second paper with a similar title had to wait a whopping 17 years before making its appearance in 2005. Philip E. Bourne, the Editor-in-Chief of *PLOS Computational Biology*, was the mastermind behind the fitting title *Ten Simple Rules for Getting Published*, which can be credited with truly starting the "10 simple rules" trend, setting off a snowball effect in academic publishing.
 
 ### The golden era
 
-"Ten simple rules" is such a simple and effective formula for a title---a blend of clickbait with the enticing promise to solve the reader's problems in just a few easy steps. Not nine rules, and certainly not eleven. But just how many of these papers are out there in the wild? The answer is:
+"Ten simple rules" is such a simple and effective formula for a title---a blend of clickbait with the enticing promise to solve the reader's problems in just a few easy steps. But just how many of these papers are out there in the wild? and the answer is:
 
 ```{r eval=FALSE}
 library(ggthemes)
@@ -70,12 +70,7 @@ clean_data%>%
 
 ![](plot1.png)
 
-a lot! About 500 of "10 simple rules" papers. That means somewhere in the literature there are at least 5000 simple rules!
-
-```{r}
-math=500*10
-print(math)
-```
+a lot! About 500 of "10 simple rules" papers. That means in the scientific literature there are at least 5000 simple rules!
 
 My next question was, "Where are all these articles being published?" When I saw the answer, my first thought was that I must have made an embarrassing mistake during data cleaning or miswritten something in the code. But nope, the data was correct---papers titled "Ten Simple Rules" have a clear and distinct origin.
 
@@ -93,15 +88,15 @@ clean_data%>%
   theme(axis.text.y = element_text(hjust = 0),
         axis.title.y = element_text(vjust = 5))
 
-ggsave("plot2.png",dpi="retina")
+
 ```
 
 ![](plot2.png)
 
-The large majority of these papers are coming from *PLOS Computational Biology*, so it\'s no coincidence that their Editor-in-Chief published the first modern 'Ten Simple Rules' paper back in 2005. Time to dig a bit more using Dimensions authorship data.
+The large majority of these papers are coming from *PLOS Computational Biology*, and of course it's no coincidence that their Editor-in-Chief published the first modern 'Ten Simple Rules' paper back in 2005. Digging a bit further on Dimensions authorship data shows Philip is the king of simple rules.
 
-```{r}
-#Compile a vector with all authors names
+```{r warning=FALSE}
+#Compile a vector with all authors names and count
 all_authors <-  trimws(unlist(strsplit(clean_data$Authors, ";")))
 table(all_authors)%>%
   as.tibble()%>%
@@ -109,14 +104,54 @@ table(all_authors)%>%
   head(5)
 ```
 
-### References:
+PLOS Computational Biology APC is currently at \$2926, meaning each rule comes at a cost of \$296, and the entire series must have bring some serious money to the journal (APC changes overtime, but I´m estimating \>\$600k - assuming the series is treated as regular submissions.)
 
-Gómez Barreiro, P. (2023). Text-mining a Taylor & Francis journal using R. [https://pagomba-blog.netlify.app/posts/11_10_23/](https://pagomba-blog.netlify.app/posts/11_10_23//){.uri}
+### The impact of 10 simple rules for
 
-Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <https://pagomba-blog.netlify.app/posts/08_10_23/>
+Dimensions data also includes article citation numbers. To assess the impact of these papers over time, I decided to track the number of citations they accumulate each year, adding 1 to avoid dividing by zero for articles published in 2024.
 
-Hanson, M. A., Gómez Barreiro, P., Crosetto, P., & Brockington, D. (2023). *arXiv*. The Strain on Scientific Publishing. <https://arxiv.org/abs/2309.15884>
+```{r eval=FALSE}
+library(ggrepel)
+clean_data%>%
+  mutate(years_publicated=2024-PubYear+1,
+         cit_per_year=`Times cited`/years_publicated)%>%
+  ggplot(aes(x=PubYear,y=cit_per_year))+
+  geom_jitter(height=0,width = .2,colour="darkred",size=3)+
+  geom_text_repel(data=.%>%
+                    filter(cit_per_year>40)%>%
+                    mutate(Title=gsub("ten simple rules for ","...",tolower(Title))),
+                  aes(label=Title,y=cit_per_year),
+                  nudge_y=5,
+                  force=1,
+                  max.overlaps=3,
+                  direction="both",
+                  size=4,
+                  segment.linetype = 2
+                  )+
+  scale_x_continuous(breaks = seq(1988,2024,2))+
+  labs(title = "The impact of 10 simple rules for....", y="Citations/year published",x="Year",caption = "Data source: Dimensions")+
+  theme_economist()+
+  theme(axis.text.y = element_text(hjust = 0),
+        axis.title.y = element_text(vjust = 5),
+        axis.text.x = element_text(angle=90))
 
-Wickham H (2022). rvest: Easily Harvest (Scrape) Web Pages. R package version 1.0.3. \<https://CRAN.R-project.org/package=rvest\>
+ggsave("plot3.png",dpi="retina")
+```
 
-Wickham H, et al. (2019) "Welcome to the tidyverse." *Journal of Open Source Software*, 4 (43), 1686. doi: <https://doi.org/10.21105/joss.01686>
+![](plot3.png)
+
+At this point, I decided to turn to the internet for some additional clues into PLOS and its "Ten Simple Rules" series, just to discover my findings were not particularly novel.
+
+Stephen Heard had already discussed this trend on his blog less than a year ago. In addition to providing a clever parody of this popular genre of papers, his blog highlights what many consider the quintessential article in the series: "Ten Simple Rules for Writing a PLOS Ten Simple Rules Article.
+
+[Stephen Heard](https://x.com/StephenBHeard) had already commented on this trend on his [blog](https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/) less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighso the epitome article of the *Ten simple rules*... series: [Ten Simple Rules for Writing a PLOS Ten Simple Rules Article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858). Published back in 2014, the article is still a fun read with some interesting data on the series. Back then Philip E. Bourne was present in almost half of the papers on the series.
+
+![2014 Pie chart from PLOS article shows Philip E. Bourne presence in the series](pcbi.1003858.g002.png)
+
+Later, in 2018, Philip E. Bourne would then went into publishing [One thousand simple rules](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006670). The paper ends rising some interesting questions about the series, its novelty and the future of science dissemination.
+
+But here we are in 2024, and the series is still going strong, delivering ten rules at a time (several times a year).
+
+::: callout-note
+PLOS articles can be downloaded for text mining purposes from [here](https://plos.org/text-and-data-mining/). In hindsight, I should have use this to get some better metrics for the *Ten simple rules...* series. I have got a tutorial on text mining PLOS data [here](https://pgomba.github.io/pgb_website/posts/08_10_23/) in case you want to explore further.
+:::

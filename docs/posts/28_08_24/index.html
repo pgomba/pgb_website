@@ -215,11 +215,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Top 10 lists have dominated the internet for ages, and academic publishing is no exception. My Twitter feed is proof of this; almost daily, I see someone retweeting a paper titled "Ten Simple Rules to…" This made me curious about the origin of these papers and whether they were a sudden trend or just a passing phase. What I initially thought would be a straightforward answer turned into an unexpectedly enjoyable internet adventure.</p>
+<p>Top 10 lists have dominated the internet for ages, and academic publishing is no exception. My Twitter feed is proof of this; with frequent “Ten Simple Rules to…” being retweeted left and right. This made me curious about the origin of these papers and whether they were a sudden trend or just a passing phase. I did not jump into this data search with many expectations, but what I initially thought would be a simple answer turned into an unexpectedly enjoyable internet adventure.</p>
 <section id="the-data-and-the-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="the-data-and-the-cleaning">The data, and the cleaning</h3>
-<p>Using <a href="https://www.dimensions.ai/">Dimensions</a>, I downloaded all available data for articles containing the phrases “10 simple rules” and “Ten simple rules.” It’s not a perfect starting point, but I’ll clean the data later. If you’d like to follow along or explore on your own, you can find the original .csv file here: <a href="https://github.com/pgomba/pgb_website/blob/main/posts/28_08_24/Dimensions-Publication-2024-08-24_19-59-19.csv">LINK</a>. Just remember to skip the first row when loading the file in R. After that, it’s simply a matter of filtering out titles that don’t contain our target keywords</p>
+<p>Using <a href="https://www.dimensions.ai/">Dimensions</a>, I downloaded all available data for articles containing the phrases “10 simple rules” and “Ten simple rules.” It’s not a perfect starting point, but I’ll clean the data later. If you’d like to follow along or explore on your own, you can find the original .csv file here: <a href="https://github.com/pgomba/pgb_website/blob/main/posts/28_08_24/Dimensions-Publication-2024-08-24_19-59-19.csv">LINK</a>. Just remember to skip the first row when loading the file in R. After that, it’s simply a matter of filtering out titles that don’t contain the target keywords</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>keywords<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"ten simple rules"</span>,<span class="st">"10 simple rules"</span>)</span>
@@ -228,26 +230,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="fu">paste</span>(keywords,<span class="at">collapse =</span> <span class="st">"|"</span>),<span class="fu">tolower</span>(Title)))</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(clean_data,<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="the-original-sin" class="level3">
 <h3 class="anchored" data-anchor-id="the-original-sin">The original sin</h3>
-<p>Finding when all this trend started is easy:</p>
+<p>Arranging data by publication year shows that the first known paper (according to Dimensions) with “Ten simple rules” in its title was published back in 1988, the same year Disney released <em>Who Framed Roger Rabbit?</em> In other words, Christopher Lloyd and M.C. Budden <em>et al</em>. were in a pioneering phase simultaneously.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">%&gt;%</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Title,PubYear)<span class="sc">%&gt;%</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(PubYear)<span class="sc">%&gt;%</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>This means that the first known paper (according to Dimensions) with “Ten simple rules” in its title was published back in 1988, the same year Disney released <em>Who Framed Roger Rabbit?</em> In other words, Christopher Lloyd and M.C. Budden <em>et al</em>. were in a pioneering phase simultaneously. The paper, titled <a href="https://www.tandfonline.com/doi/abs/10.1300/J043v03n01_06"><em>Ten Simple Rules for Improving Advertising Programs in the Health Care Industry</em></a><em>,</em> was the first of its kind. I’d love to provide more details about these rules, but in 1988, academia hadn’t yet discovered the wonders of open access, and modern publishers still believe in gatekeeping the contents of a 36-year-old article.</p>
-<p>The second paper with a similar title had to wait a whopping 17 years before making its appearance in 2005. Philip E. Bourne, the Editor-in-Chief of <em>PLOS Computational Biology</em>, was the mastermind behind the fitting title <em>Ten Simple Rules for Getting Published</em>, which surely can be credited with truly starting the “10 simple rules” trend, setting off a snowball effect in academic publishing.</p>
+<p>The paper, titled <a href="https://www.tandfonline.com/doi/abs/10.1300/J043v03n01_06"><em>Ten Simple Rules for Improving Advertising Programs in the Health Care Industry</em></a><em>,</em> was the first of its kind. I’d love to provide more details about these rules, but in 1988, academia hadn’t yet discovered the wonders of open access, and modern publishers still believe in gatekeeping the contents of a 36-year-old article.</p>
+<p>The second paper with a similar title had to wait a whopping 17 years before making its appearance in 2005. Philip E. Bourne, the Editor-in-Chief of <em>PLOS Computational Biology</em>, was the mastermind behind the fitting title <em>Ten Simple Rules for Getting Published</em>, which can be credited with truly starting the “10 simple rules” trend, setting off a snowball effect in academic publishing.</p>
 </section>
 <section id="the-golden-era" class="level3">
 <h3 class="anchored" data-anchor-id="the-golden-era">The golden era</h3>
-<p>“Ten simple rules” is such a simple and effective formula for a title—a blend of clickbait with the enticing promise to solve the reader’s problems in just a few easy steps. Not nine rules, and certainly not eleven. But just how many of these papers are out there in the wild? The answer is:</p>
+<p>“Ten simple rules” is such a simple and effective formula for a title—a blend of clickbait with the enticing promise to solve the reader’s problems in just a few easy steps. But just how many of these papers are out there in the wild? and the answer is:</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">%&gt;%</span></span>
@@ -260,47 +268,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>),</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">5</span>),</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p><img src="plot1.png" class="img-fluid"></p>
-<p>a lot! About 500 of “10 simple rules” papers. That means somewhere in the literature there are at least 5000 simple rules!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>math<span class="ot">=</span><span class="dv">500</span><span class="sc">*</span><span class="dv">10</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(math)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5000</code></pre>
-</div>
-</div>
+<p>a lot! About 500 of “10 simple rules” papers. That means in the scientific literature there are at least 5000 simple rules!</p>
 <p>My next question was, “Where are all these articles being published?” When I saw the answer, my first thought was that I must have made an embarrassing mistake during data cleaning or miswritten something in the code. But nope, the data was correct—papers titled “Ten Simple Rules” have a clear and distinct origin.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">.by=</span><span class="st">`</span><span class="at">Source title</span><span class="st">`</span>,<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))<span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Source title</span><span class="st">`</span><span class="ot">=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"International Journal for Paras"</span>,<span class="st">`</span><span class="at">Source title</span><span class="st">`</span>),<span class="st">"IJPPW"</span>,<span class="st">`</span><span class="at">Source title</span><span class="st">`</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">fct_reorder</span>(<span class="st">`</span><span class="at">Source title</span><span class="st">`</span>,n),<span class="at">x=</span>n))<span class="sc">+</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"darkred"</span>)<span class="sc">+</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>))<span class="sc">+</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The age of 10 simple rules...."</span>, <span class="at">y=</span><span class="st">"Top 10 journals"</span>,<span class="at">x=</span><span class="st">"Number of articles"</span>,<span class="at">caption =</span> <span class="st">"Data source: Dimensions"</span>)<span class="sc">+</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>()<span class="sc">+</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>),</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">5</span>))</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"plot2.png"</span>,<span class="at">dpi=</span><span class="st">"retina"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">.by=</span><span class="st">`</span><span class="at">Source title</span><span class="st">`</span>,<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))<span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Source title</span><span class="st">`</span><span class="ot">=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"International Journal for Paras"</span>,<span class="st">`</span><span class="at">Source title</span><span class="st">`</span>),<span class="st">"IJPPW"</span>,<span class="st">`</span><span class="at">Source title</span><span class="st">`</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">fct_reorder</span>(<span class="st">`</span><span class="at">Source title</span><span class="st">`</span>,n),<span class="at">x=</span>n))<span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"darkred"</span>)<span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>))<span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The age of 10 simple rules...."</span>, <span class="at">y=</span><span class="st">"Top 10 journals"</span>,<span class="at">x=</span><span class="st">"Number of articles"</span>,<span class="at">caption =</span> <span class="st">"Data source: Dimensions"</span>)<span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>()<span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p><img src="plot2.png" class="img-fluid"></p>
-<p>The large majority of these papers are coming from <em>PLOS Computational Biology</em>, so it's no coincidence that their Editor-in-Chief published the first modern ‘Ten Simple Rules’ paper back in 2005. Time to dig a bit more using Dimensions authorship data.</p>
+<p>The large majority of these papers are coming from <em>PLOS Computational Biology</em>, and of course it’s no coincidence that their Editor-in-Chief published the first modern ‘Ten Simple Rules’ paper back in 2005. Digging a bit further on Dimensions authorship data shows Philip is the king of simple rules.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Compile a vector with all authors names</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>all_authors <span class="ot">&lt;-</span>  <span class="fu">trimws</span>(<span class="fu">unlist</span>(<span class="fu">strsplit</span>(clean_data<span class="sc">$</span>Authors, <span class="st">";"</span>)))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(all_authors)<span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.tibble</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))<span class="sc">%&gt;%</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: `as.tibble()` was deprecated in tibble 2.0.0.
-ℹ Please use `as_tibble()` instead.
-ℹ The signature and semantics have changed, see `?as_tibble`.</code></pre>
-</div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Compile a vector with all authors names and count</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>all_authors <span class="ot">&lt;-</span>  <span class="fu">trimws</span>(<span class="fu">unlist</span>(<span class="fu">strsplit</span>(clean_data<span class="sc">$</span>Authors, <span class="st">";"</span>)))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(all_authors)<span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.tibble</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))<span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   all_authors              n
@@ -312,14 +313,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5 De Las Rivas, Javier     4</code></pre>
 </div>
 </div>
+<p>PLOS Computational Biology APC is currently at $2926, meaning each rule comes at a cost of $296, and the entire series must have bring some serious money to the journal (APC changes overtime, but I´m estimating &gt;$600k - assuming the series is treated as regular submissions.)</p>
 </section>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References:</h3>
-<p>Gómez Barreiro, P. (2023). Text-mining a Taylor &amp; Francis journal using R. <a href="https://pagomba-blog.netlify.app/posts/11_10_23//" class="uri">https://pagomba-blog.netlify.app/posts/11_10_23/</a></p>
-<p>Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <a href="https://pagomba-blog.netlify.app/posts/08_10_23/" class="uri">https://pagomba-blog.netlify.app/posts/08_10_23/</a></p>
-<p>Hanson, M. A., Gómez Barreiro, P., Crosetto, P., &amp; Brockington, D. (2023). <em>arXiv</em>. The Strain on Scientific Publishing. <a href="https://arxiv.org/abs/2309.15884" class="uri">https://arxiv.org/abs/2309.15884</a></p>
-<p>Wickham H (2022). rvest: Easily Harvest (Scrape) Web Pages. R package version 1.0.3. &lt;https://CRAN.R-project.org/package=rvest&gt;</p>
-<p>Wickham H, et al.&nbsp;(2019) “Welcome to the tidyverse.” <em>Journal of Open Source Software</em>, 4 (43), 1686. doi: <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p>
+<section id="the-impact-of-10-simple-rules-for" class="level3">
+<h3 class="anchored" data-anchor-id="the-impact-of-10-simple-rules-for">The impact of 10 simple rules for</h3>
+<p>Dimensions data also includes article citation numbers. To assess the impact of these papers over time, I decided to track the number of citations they accumulate each year, adding 1 to avoid dividing by zero for articles published in 2024.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">years_publicated=</span><span class="dv">2024</span><span class="sc">-</span>PubYear<span class="sc">+</span><span class="dv">1</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">cit_per_year=</span><span class="st">`</span><span class="at">Times cited</span><span class="st">`</span><span class="sc">/</span>years_publicated)<span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>PubYear,<span class="at">y=</span>cit_per_year))<span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">height=</span><span class="dv">0</span>,<span class="at">width =</span> .<span class="dv">2</span>,<span class="at">colour=</span><span class="st">"darkred"</span>,<span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>.<span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">filter</span>(cit_per_year<span class="sc">&gt;</span><span class="dv">40</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mutate</span>(<span class="at">Title=</span><span class="fu">gsub</span>(<span class="st">"ten simple rules for "</span>,<span class="st">"..."</span>,<span class="fu">tolower</span>(Title))),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">label=</span>Title,<span class="at">y=</span>cit_per_year),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">nudge_y=</span><span class="dv">5</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">force=</span><span class="dv">1</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">max.overlaps=</span><span class="dv">3</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">direction=</span><span class="st">"both"</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">segment.linetype =</span> <span class="dv">2</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                  )<span class="sc">+</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1988</span>,<span class="dv">2024</span>,<span class="dv">2</span>))<span class="sc">+</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The impact of 10 simple rules for...."</span>, <span class="at">y=</span><span class="st">"Citations/year published"</span>,<span class="at">x=</span><span class="st">"Year"</span>,<span class="at">caption =</span> <span class="st">"Data source: Dimensions"</span>)<span class="sc">+</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>()<span class="sc">+</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">5</span>),</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"plot3.png"</span>,<span class="at">dpi=</span><span class="st">"retina"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><img src="plot3.png" class="img-fluid"></p>
+<p>At this point, I decided to turn to the internet for some additional clues into PLOS and its “Ten Simple Rules” series, just to discover my findings were not particularly novel.</p>
+<p>Stephen Heard had already discussed this trend on his blog less than a year ago. In addition to providing a clever parody of this popular genre of papers, his blog highlights what many consider the quintessential article in the series: “Ten Simple Rules for Writing a PLOS Ten Simple Rules Article.</p>
+<p><a href="https://x.com/StephenBHeard">Stephen Heard</a> had already commented on this trend on his <a href="https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/">blog</a> less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighso the epitome article of the <em>Ten simple rules</em>… series: <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858">Ten Simple Rules for Writing a PLOS Ten Simple Rules Article</a>. Published back in 2014, the article is still a fun read with some interesting data on the series. Back then Philip E. Bourne was present in almost half of the papers on the series.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pcbi.1003858.g002.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">2014 Pie chart from PLOS article shows Philip E. Bourne presence in the series</figcaption>
+</figure>
+</div>
+<p>Later, in 2018, Philip E. Bourne would then went into publishing <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006670">One thousand simple rules</a>. The paper ends rising some interesting questions about the series, its novelty and the future of science dissemination.</p>
+<p>But here we are in 2024, and the series is still going strong, delivering ten rules at a time (several times a year).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PLOS articles can be downloaded for text mining purposes from <a href="https://plos.org/text-and-data-mining/">here</a>. In hindsight, I should have use this to get some better metrics for the <em>Ten simple rules…</em> series. I have got a tutorial on text mining PLOS data <a href="https://pgomba.github.io/pgb_website/posts/08_10_23/">here</a> in case you want to explore further.</p>
+</div>
+</div>
 
 
 </section>
