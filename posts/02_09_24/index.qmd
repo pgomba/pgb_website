@@ -3,7 +3,7 @@ title: "The golden era of *Ten simple rules* articles"
 author:
   - name: Pablo Gómez Barreiro
     orcid: 0000-0002-3140-3326
-date: "2023-10-18"
+date: "2024-09-03"
 categories: [R, PLOS, Data analysis]
 image: "thumbn.jpg"
 draft: true
@@ -34,7 +34,11 @@ head(clean_data,10)
 
 ### The original sin
 
-Arranging data by publication year shows that the first known paper (according to Dimensions) with "Ten simple rules" in its title was published back in 1988, the same year Disney released *Who Framed Roger Rabbit?* In other words, Christopher Lloyd and M.C. Budden *et al*. were in a pioneering phase simultaneously.
+Arranging data by publication year shows that the first known paper (according to Dimensions) with "Ten simple rules" in its title was published back in 1988.
+
+::: column-margin
+![For temporal context, the movie *Who framed roger rabbit?* was also published in 1988](wfrr.jpg)
+:::
 
 ```{r eval=FALSE}
 library(tidyverse)
@@ -51,7 +55,11 @@ The second paper with a similar title had to wait a whopping 17 years before mak
 
 ### The golden era
 
-"Ten simple rules" is such a simple and effective formula for a title---a blend of clickbait with the enticing promise to solve the reader's problems in just a few easy steps. But just how many of these papers are out there in the wild? and the answer is:
+"*Ten simple rules*" is such a simple and effective formula for a title---a blend of clickbait with the enticing promise to solve the reader's problems in just a few easy steps. But just how many of these papers are out there in the wild? and the answer is:
+
+::: column-margin
+[![Clickbait titles in academia are on the rise, but this is not necessarily correlated with an increase of citations](clickbait.PNG){alt="For temporal context, Who framed roger rabbit? was also published in 1988"}](https://link.springer.com/chapter/10.1007/978-3-031-48044-7_32)
+:::
 
 ```{r eval=FALSE}
 library(ggthemes)
@@ -72,7 +80,7 @@ clean_data%>%
 
 a lot! About 500 of "10 simple rules" papers. That means in the scientific literature there are at least 5000 simple rules!
 
-My next question was, "Where are all these articles being published?" When I saw the answer, my first thought was that I must have made an embarrassing mistake during data cleaning or miswritten something in the code. But nope, the data was correct---papers titled "Ten Simple Rules" have a clear and distinct origin.
+My next question was, "Where are all these articles being published?" When I saw the answer, my first thought was that I must have made an embarrassing mistake during data cleaning or miswritten something in the code. But nope, the data was correct---papers titled *Ten Simple Rules* have a clear and distinct origin.
 
 ```{r eval=FALSE}
 clean_data%>%
@@ -142,9 +150,7 @@ ggsave("plot3.png",dpi="retina")
 
 At this point, I decided to turn to the internet for some additional clues into PLOS and its "Ten Simple Rules" series, just to discover my findings were not particularly novel.
 
-Stephen Heard had already discussed this trend on his blog less than a year ago. In addition to providing a clever parody of this popular genre of papers, his blog highlights what many consider the quintessential article in the series: "Ten Simple Rules for Writing a PLOS Ten Simple Rules Article.
-
-[Stephen Heard](https://x.com/StephenBHeard) had already commented on this trend on his [blog](https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/) less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighso the epitome article of the *Ten simple rules*... series: [Ten Simple Rules for Writing a PLOS Ten Simple Rules Article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858). Published back in 2014, the article is still a fun read with some interesting data on the series. Back then Philip E. Bourne was present in almost half of the papers on the series.
+[Stephen Heard](https://x.com/StephenBHeard) had already commented on this trend on his [blog](https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/) less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighs the epitome article of the *Ten simple rules*... series: [Ten Simple Rules for Writing a PLOS Ten Simple Rules Article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858). Published back in 2014, the article is still a fun read with some interesting data on the series. Back then Philip E. Bourne was present in almost half of the papers on the series.
 
 ![2014 Pie chart from PLOS article shows Philip E. Bourne presence in the series](pcbi.1003858.g002.png)
 
