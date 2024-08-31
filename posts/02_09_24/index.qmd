@@ -150,7 +150,7 @@ ggsave("plot3.png",dpi="retina")
 
 At this point, I decided to turn to the internet for some additional clues into PLOS and its "Ten Simple Rules" series, just to discover my findings were not particularly novel.
 
-[Stephen Heard](https://x.com/StephenBHeard) had already commented on this trend on his [blog](https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/) less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighs the epitome article of the *Ten simple rules*... series: [Ten Simple Rules for Writing a PLOS Ten Simple Rules Article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858). Published back in 2014, the article is still a fun read with some interesting data on the series. Back then Philip E. Bourne was present in almost half of the papers on the series.
+[Stephen Heard](https://x.com/StephenBHeard) had already commented on this trend on his [blog](https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/) less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighting the epitome article of the *Ten simple rules*... series: [Ten Simple Rules for Writing a PLOS Ten Simple Rules Article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858). Published back in 2014, the article is still a fun read with some interesting data on the series. Back then Philip E. Bourne was present in almost half of the papers on the series.
 
 ![2014 Pie chart from PLOS article shows Philip E. Bourne presence in the series](pcbi.1003858.g002.png)
 
