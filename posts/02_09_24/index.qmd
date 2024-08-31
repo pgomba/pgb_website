@@ -112,7 +112,7 @@ table(all_authors)%>%
   head(5)
 ```
 
-PLOS Computational Biology APC is currently at \$2926, meaning each rule comes at a cost of \$296, and the entire series must have bring some serious money to the journal (APC changes overtime, but I´m estimating \>\$600k - assuming the series is treated as regular submissions.)
+PLOS Computational Biology APC is currently at \$2926, meaning each rule comes at a cost of \$296, and the entire series must have brought some serious money to the journal (APC changes overtime, but I´m estimating \>\$600k - assuming the series is treated as regular submissions.)
 
 ### The impact of 10 simple rules for
 
