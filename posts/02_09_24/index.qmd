@@ -147,8 +147,6 @@ clean_data%>%
 
 ![](plot3.png){fig-alt="A graph with the number of citations accumulated per year against year published of papers with 10 simple rules in its title. The graph makes a distinction between articles published or not at PLOS"}
 
-![](plot3.png){fig-alt="A graph with the number of citations accumulated per year against year published of papers with 10 simple rules in its title"}
-
 ::: column-margin
 [Ten simple rules for neuroimaging meta-analysis](https://www.sciencedirect.com/science/article/pii/S0149763417303111) \| Elsevier
 
