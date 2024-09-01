@@ -1,12 +1,13 @@
 ---
 title: "The golden era of *Ten simple rules* articles"
+lang: en
 author:
   - name: Pablo Gómez Barreiro
     orcid: 0000-0002-3140-3326
 date: "2024-09-02"
 categories: [R, PLOS, Data analysis]
 image: "thumbn.jpg"
-draft: true
+draft: false
 comments:
   utterances: 
     repo: pgomba/pgb_website
@@ -193,7 +194,7 @@ At this point, I decided to turn to the internet for some additional clues into 
 
 ### The future of the *ten simple rules* series
 
-Later, in 2018, Philip E. Bourne would then went into publishing [One thousand simple rules](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006670). The paper ends rising some interesting questions about the series, its novelty and the future of science dissemination. This article goes as far as questioning of whether these articles might be better suited as blogs. But here we are in 2024, and the series is still going strong. With the current PLOS article processing chargess, each published rule cost authors approximately \$296, perhaps an extra factor to reconsider the long term viability of the series in its current format. At glance, some articles in the series seem to offer basic guidelines and common sense, with a wide range of tones in them (From [Ten simple rules to win a Nobel prize](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004084) to [Ten simple rules to ruin a collaborative environment](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009957)). In 2023, the number of articles published in the series was halved compared to 2022, although the 2024 "harvest" is on track to match 2023's output. \
+Later, in 2018, Philip E. Bourne would then went into publishing [One thousand simple rules](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006670). The paper ends rising some interesting questions about the series, its novelty and the future of science dissemination. This article goes as far as questioning of whether these articles might be better suited as blogs. But here we are in 2024, and the series is still going strong. With the current PLOS article processing chargess, each published rule cost authors approximately \$296, perhaps an extra factor to reconsider the long term viability of the series in its current format. At glance, some articles in the series seem to offer basic guidelines and common sense, with a wide range of tones in them (From [Ten simple rules to win a Nobel prize](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004084) to [Ten simple rules to ruin a collaborative environment](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009957)). In 2023, the number of articles published in the series was halved compared to 2022, although the 2024 "harvest" is on track to match 2023's output.\
 As 2025 marks the 20th anniversary of the "Ten Simple Rules" series, will PLOS plan a special edition to celebrate the milestone?
 
 ::: callout-note
