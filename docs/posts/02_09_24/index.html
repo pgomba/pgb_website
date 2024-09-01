@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pablo Gómez Barreiro">
-<meta name="dcterms.date" content="2024-09-03">
+<meta name="dcterms.date" content="2024-09-02">
 
 <title>Pablo Gómez Barreiro - The golden era of Ten simple rules articles</title>
 <style>
@@ -207,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 3, 2024</p>
+      <p class="date">September 2, 2024</p>
     </div>
   </div>
   
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="wfrr.jpg" class="img-fluid figure-img"></p>
+<p><img src="wfrr.jpg" class="img-fluid figure-img" alt="Screenshot from the 1988 movie Who framed roger rabbit?"></p>
 <figcaption class="figure-caption">For temporal context, the movie <em>Who framed roger rabbit?</em> was also published in 1988</figcaption>
 </figure>
 </div>
@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://link.springer.com/chapter/10.1007/978-3-031-48044-7_32"><img src="clickbait.PNG" class="img-fluid figure-img" alt="For temporal context, Who framed roger rabbit? was also published in 1988"></a></p>
+<p><a href="https://link.springer.com/chapter/10.1007/978-3-031-48044-7_32"><img src="clickbait.PNG" class="img-fluid figure-img" alt="Screen caption of the paper titled The association between academia clickbait and impact"></a></p>
 <figcaption class="figure-caption">Clickbait titles in academia are on the rise, but this is not necessarily correlated with an increase of citations</figcaption>
 </figure>
 </div>
@@ -288,8 +288,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><img src="plot1.png" class="img-fluid"></p>
-<p>a lot! About 500 of “10 simple rules” papers. That means in the scientific literature there are at least 5000 simple rules!</p>
+<p><img src="plot1.png" class="img-fluid" alt="A histogram showing the number of articles with ten simple rules in its title over time."></p>
+<p>a lot! About 300 of “10 simple rules” papers. That means in the scientific literature there are at least 3000 simple rules!</p>
 <p>My next question was, “Where are all these articles being published?” When I saw the answer, my first thought was that I must have made an embarrassing mistake during data cleaning or miswritten something in the code. But nope, the data was correct—papers titled <em>Ten Simple Rules</em> have a clear and distinct origin.</p>
 <div class="cell">
 <details>
@@ -308,8 +308,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><img src="plot2.png" class="img-fluid"></p>
-<p>The large majority of these papers are coming from <em>PLOS Computational Biology</em>, and of course it’s no coincidence that their Editor-in-Chief published the first modern ‘Ten Simple Rules’ paper back in 2005. Digging a bit further on Dimensions authorship data shows Philip is the king of simple rules.</p>
+<p><img src="plot2.png" class="img-fluid" alt="A graph showing the journal PLOS Computational Biology has published the large majority of articles with the words &quot;ten simple rules&quot; in its title"></p>
+<p>The large majority of these papers are coming from <em>PLOS Computational Biology</em>, and of course it’s no coincidence that their Editor-in-Chief published the first modern <em>Ten Simple Rules</em> paper back in 2005. This became a series, with him leading the list of authors who had articles published in it.</p>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -331,9 +331,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5 De Las Rivas, Javier     4</code></pre>
 </div>
 </div>
-<p>PLOS Computational Biology APC is currently at $2926, meaning each rule comes at a cost of $296, and the entire series must have brought some serious money to the journal (APC changes overtime, but I´m estimating &gt;$600k - assuming the series is treated as regular submissions.)</p>
 </section>
-<section id="the-impact-of-10-simple-rules-for" class="level3">
+<section id="the-impact-of-10-simple-rules-for" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="the-impact-of-10-simple-rules-for">The impact of 10 simple rules for</h3>
 <p>Dimensions data also includes article citation numbers. To assess the impact of these papers over time, I decided to track the number of citations they accumulate each year, adding 1 to avoid dividing by zero for articles published in 2024.</p>
 <div class="cell">
@@ -342,41 +341,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">years_publicated=</span><span class="dv">2024</span><span class="sc">-</span>PubYear<span class="sc">+</span><span class="dv">1</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">cit_per_year=</span><span class="st">`</span><span class="at">Times cited</span><span class="st">`</span><span class="sc">/</span>years_publicated)<span class="sc">%&gt;%</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>PubYear,<span class="at">y=</span>cit_per_year))<span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">height=</span><span class="dv">0</span>,<span class="at">width =</span> .<span class="dv">2</span>,<span class="at">colour=</span><span class="st">"darkred"</span>,<span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>.<span class="sc">%&gt;%</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">filter</span>(cit_per_year<span class="sc">&gt;</span><span class="dv">40</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mutate</span>(<span class="at">Title=</span><span class="fu">gsub</span>(<span class="st">"ten simple rules for "</span>,<span class="st">"..."</span>,<span class="fu">tolower</span>(Title))),</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">label=</span>Title,<span class="at">y=</span>cit_per_year),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">nudge_y=</span><span class="dv">5</span>,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">force=</span><span class="dv">1</span>,</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">max.overlaps=</span><span class="dv">3</span>,</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">direction=</span><span class="st">"both"</span>,</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>,</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">segment.linetype =</span> <span class="dv">2</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                  )<span class="sc">+</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1988</span>,<span class="dv">2024</span>,<span class="dv">2</span>))<span class="sc">+</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The impact of 10 simple rules for...."</span>, <span class="at">y=</span><span class="st">"Citations/year published"</span>,<span class="at">x=</span><span class="st">"Year"</span>,<span class="at">caption =</span> <span class="st">"Data source: Dimensions"</span>)<span class="sc">+</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>()<span class="sc">+</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>),</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">5</span>),</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"plot3.png"</span>,<span class="at">dpi=</span><span class="st">"retina"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">cit_per_year=</span><span class="st">`</span><span class="at">Times cited</span><span class="st">`</span><span class="sc">/</span>years_publicated,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">iscompbio=</span><span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Source title</span><span class="st">`</span><span class="sc">==</span><span class="st">"PLOS Computational Biology"</span>,<span class="st">"Yes"</span>,<span class="st">"No"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>PubYear,<span class="at">y=</span>cit_per_year,<span class="at">fill=</span>iscompbio))<span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkblue"</span>,<span class="st">"darkred"</span>))<span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">height=</span><span class="dv">0</span>,<span class="at">width =</span> .<span class="dv">2</span>,<span class="at">colour=</span><span class="st">"black"</span>,<span class="at">size=</span><span class="dv">3</span>,<span class="at">shape=</span><span class="dv">21</span>)<span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>.<span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">filter</span>(cit_per_year<span class="sc">&gt;</span><span class="dv">40</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mutate</span>(<span class="at">Title=</span><span class="fu">gsub</span>(<span class="st">"ten simple rules for "</span>,<span class="st">"..."</span>,<span class="fu">tolower</span>(Title))),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">label=</span>Title,<span class="at">y=</span>cit_per_year),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">nudge_y=</span><span class="dv">5</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">force=</span><span class="dv">2</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">max.overlaps=</span><span class="dv">3</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">direction=</span><span class="st">"both"</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                  <span class="at">segment.linetype =</span> <span class="dv">2</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                  )<span class="sc">+</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1988</span>,<span class="dv">2024</span>,<span class="dv">2</span>))<span class="sc">+</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The impact of 10 simple rules for...."</span>, <span class="at">y=</span><span class="st">"Citations/year published"</span>,<span class="at">x=</span><span class="st">"Year"</span>,<span class="at">caption =</span> <span class="st">"Data source: Dimensions"</span>,<span class="at">fill=</span><span class="st">"Published in PLOS CB?"</span>)<span class="sc">+</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>()<span class="sc">+</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">5</span>),</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>),</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><img src="plot3.png" class="img-fluid"></p>
+<p><img src="plot3.png" class="img-fluid" alt="A graph with the number of citations accumulated per year against year published of papers with 10 simple rules in its title. The graph makes a distinction between articles published or not at PLOS"></p>
+<p><img src="plot3.png" class="img-fluid" alt="A graph with the number of citations accumulated per year against year published of papers with 10 simple rules in its title"></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><a href="https://www.sciencedirect.com/science/article/pii/S0149763417303111">Ten simple rules for neuroimaging meta-analysis</a> | Elsevier</p>
+<p><br></p>
+<p><a href="https://elifesciences.org/articles/49547">Ten simple rules for the computational modeling of behavioral data</a> | eLife</p>
+<p><br></p>
+<p><a href="https://mentalhealth.bmj.com/content/21/3/95">Ten simple rules for conducting umbrella reviews</a> | BMJ</p>
+<p><br></p>
+<p><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285">Ten Simple Rules for Reproducible Computational Research</a> | PLOS</p>
+<p><br></p>
+<p><a href="https://www.sciencedirect.com/science/article/pii/S1053811909011999">Ten simple rules for dynamic causal modeling</a> | Elsevier</p>
+</div></div><p>For good measurement I am also going to plot articles vs total citations</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Times cited</span><span class="st">`</span>))<span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">colour=</span><span class="st">"black"</span>,<span class="at">fill=</span><span class="st">"darkred"</span>,<span class="at">binwidth =</span> <span class="dv">10</span>)<span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The impact of 10 simple rules for...."</span>, <span class="at">y=</span><span class="st">"Number of articles"</span>,<span class="at">x=</span><span class="st">"Total citations"</span>,<span class="at">caption =</span> <span class="st">"Data source: Dimensions"</span>)<span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>()<span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">5</span>),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plot4.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Histogram showing most articles with ten simple rules in the title are in the low spectrum of number of citations</figcaption>
+</figure>
+</div>
+<p>Despite PLOS having the large majority of <em>ten simple rules</em> articles, the more impactful ones (citation wise) were published at different publishers. However, in general the majority of articles remain on the lower end of the citation spectrum, including some newer articles that may not have yet achieved their breakthrough.</p>
 <p>At this point, I decided to turn to the internet for some additional clues into PLOS and its “Ten Simple Rules” series, just to discover my findings were not particularly novel.</p>
-<p><a href="https://x.com/StephenBHeard">Stephen Heard</a> had already commented on this trend on his <a href="https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/">blog</a> less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighting the epitome article of the <em>Ten simple rules</em>… series: <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858">Ten Simple Rules for Writing a PLOS Ten Simple Rules Article</a>. Published back in 2014, the article is still a fun read with some interesting data on the series. Back then Philip E. Bourne was present in almost half of the papers on the series.</p>
+<p><a href="https://x.com/StephenBHeard">Stephen Heard</a> had already commented on this trend on his <a href="https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/">blog</a> less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighting the epitome article of the <em>Ten simple rules</em>… series: <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858">Ten Simple Rules for Writing a PLOS Ten Simple Rules Article</a>. Published back in 2014, the article is still a fun read with some interesting data on the series. Back then, Philip E. Bourne was present in almost half of the papers on the series.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="pcbi.1003858.g002.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">2014 Pie chart from PLOS article shows Philip E. Bourne presence in the series</figcaption>
 </figure>
 </div>
-<p>Later, in 2018, Philip E. Bourne would then went into publishing <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006670">One thousand simple rules</a>. The paper ends rising some interesting questions about the series, its novelty and the future of science dissemination.</p>
-<p>But here we are in 2024, and the series is still going strong, delivering ten rules at a time (several times a year).</p>
+</section>
+<section id="the-future-of-the-ten-simple-rules-series" class="level3">
+<h3 class="anchored" data-anchor-id="the-future-of-the-ten-simple-rules-series">The future of the <em>ten simple rules</em> series</h3>
+<p>Later, in 2018, Philip E. Bourne would then went into publishing <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006670">One thousand simple rules</a>. The paper ends rising some interesting questions about the series, its novelty and the future of science dissemination. This article goes as far as questioning of whether these articles might be better suited as blogs. But here we are in 2024, and the series is still going strong. With the current PLOS article processing chargess, each published rule cost authors approximately $296, perhaps an extra factor to reconsider the long term viability of the series in its current format. At glance, some articles in the series seem to offer basic guidelines and common sense, with a wide range of tones in them (From <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004084">Ten simple rules to win a Nobel prize</a> to <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009957">Ten simple rules to ruin a collaborative environment</a>). In 2023, the number of articles published in the series was halved compared to 2022, although the 2024 “harvest” is on track to match 2023’s output. As 2025 marks the 20th anniversary of the “Ten Simple Rules” series, will PLOS plan a special edition to celebrate the milestone?</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

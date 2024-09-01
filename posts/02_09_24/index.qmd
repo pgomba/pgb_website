@@ -3,7 +3,7 @@ title: "The golden era of *Ten simple rules* articles"
 author:
   - name: Pablo Gómez Barreiro
     orcid: 0000-0002-3140-3326
-date: "2024-09-03"
+date: "2024-09-02"
 categories: [R, PLOS, Data analysis]
 image: "thumbn.jpg"
 draft: true
@@ -37,7 +37,7 @@ head(clean_data,10)
 Arranging data by publication year shows that the first known paper (according to Dimensions) with "Ten simple rules" in its title was published back in 1988.
 
 ::: column-margin
-![For temporal context, the movie *Who framed roger rabbit?* was also published in 1988](wfrr.jpg)
+![For temporal context, the movie *Who framed roger rabbit?* was also published in 1988](wfrr.jpg){fig-alt="Screenshot from the 1988 movie Who framed roger rabbit?"}
 :::
 
 ```{r eval=FALSE}
@@ -58,7 +58,7 @@ The second paper with a similar title had to wait a whopping 17 years before mak
 "*Ten simple rules*" is such a simple and effective formula for a title---a blend of clickbait with the enticing promise to solve the reader's problems in just a few easy steps. But just how many of these papers are out there in the wild? and the answer is:
 
 ::: column-margin
-[![Clickbait titles in academia are on the rise, but this is not necessarily correlated with an increase of citations](clickbait.PNG){alt="For temporal context, Who framed roger rabbit? was also published in 1988"}](https://link.springer.com/chapter/10.1007/978-3-031-48044-7_32)
+[![Clickbait titles in academia are on the rise, but this is not necessarily correlated with an increase of citations](clickbait.PNG){alt="For temporal context, Who framed roger rabbit? was also published in 1988" fig-alt="Screen caption of the paper titled The association between academia clickbait and impact"}](https://link.springer.com/chapter/10.1007/978-3-031-48044-7_32)
 :::
 
 ```{r eval=FALSE}
@@ -76,9 +76,9 @@ clean_data%>%
         axis.text.x = element_text(angle=90))
 ```
 
-![](plot1.png)
+![](plot1.png){fig-alt="A histogram showing the number of articles with ten simple rules in its title over time."}
 
-a lot! About 500 of "10 simple rules" papers. That means in the scientific literature there are at least 5000 simple rules!
+a lot! About 300 of "10 simple rules" papers. That means in the scientific literature there are at least 3000 simple rules!
 
 My next question was, "Where are all these articles being published?" When I saw the answer, my first thought was that I must have made an embarrassing mistake during data cleaning or miswritten something in the code. But nope, the data was correct---papers titled *Ten Simple Rules* have a clear and distinct origin.
 
@@ -99,9 +99,9 @@ clean_data%>%
 
 ```
 
-![](plot2.png)
+![](plot2.png){fig-alt="A graph showing the journal PLOS Computational Biology has published the large majority of articles with the words \"ten simple rules\" in its title"}
 
-The large majority of these papers are coming from *PLOS Computational Biology*, and of course it's no coincidence that their Editor-in-Chief published the first modern 'Ten Simple Rules' paper back in 2005. Digging a bit further on Dimensions authorship data shows Philip is the king of simple rules.
+The large majority of these papers are coming from *PLOS Computational Biology*, and of course it's no coincidence that their Editor-in-Chief published the first modern *Ten Simple Rules* paper back in 2005. This became a series, with him leading the list of authors who had articles published in it.
 
 ```{r warning=FALSE}
 #Compile a vector with all authors names and count
@@ -112,8 +112,6 @@ table(all_authors)%>%
   head(5)
 ```
 
-PLOS Computational Biology APC is currently at \$2926, meaning each rule comes at a cost of \$296, and the entire series must have brought some serious money to the journal (APC changes overtime, but I´m estimating \>\$600k - assuming the series is treated as regular submissions.)
-
 ### The impact of 10 simple rules for
 
 Dimensions data also includes article citation numbers. To assess the impact of these papers over time, I decided to track the number of citations they accumulate each year, adding 1 to avoid dividing by zero for articles published in 2024.
@@ -122,41 +120,82 @@ Dimensions data also includes article citation numbers. To assess the impact of 
 library(ggrepel)
 clean_data%>%
   mutate(years_publicated=2024-PubYear+1,
-         cit_per_year=`Times cited`/years_publicated)%>%
-  ggplot(aes(x=PubYear,y=cit_per_year))+
-  geom_jitter(height=0,width = .2,colour="darkred",size=3)+
+         cit_per_year=`Times cited`/years_publicated,
+         iscompbio=ifelse(`Source title`=="PLOS Computational Biology","Yes","No"))%>%
+  ggplot(aes(x=PubYear,y=cit_per_year,fill=iscompbio))+
+  scale_fill_manual(values = c("darkblue","darkred"))+
+  geom_jitter(height=0,width = .2,colour="black",size=3,shape=21)+
   geom_text_repel(data=.%>%
                     filter(cit_per_year>40)%>%
                     mutate(Title=gsub("ten simple rules for ","...",tolower(Title))),
                   aes(label=Title,y=cit_per_year),
                   nudge_y=5,
-                  force=1,
+                  force=2,
                   max.overlaps=3,
                   direction="both",
                   size=4,
                   segment.linetype = 2
                   )+
   scale_x_continuous(breaks = seq(1988,2024,2))+
-  labs(title = "The impact of 10 simple rules for....", y="Citations/year published",x="Year",caption = "Data source: Dimensions")+
+  labs(title = "The impact of 10 simple rules for....", y="Citations/year published",x="Year",caption = "Data source: Dimensions",fill="Published in PLOS CB?")+
+  theme_economist()+
+  theme(axis.text.y = element_text(hjust = 0),
+        axis.title.y = element_text(vjust = 5),
+        axis.text.x = element_text(angle=90),
+        legend.position = "bottom")
+```
+
+![](plot3.png){fig-alt="A graph with the number of citations accumulated per year against year published of papers with 10 simple rules in its title. The graph makes a distinction between articles published or not at PLOS"}
+
+![](plot3.png){fig-alt="A graph with the number of citations accumulated per year against year published of papers with 10 simple rules in its title"}
+
+::: column-margin
+[Ten simple rules for neuroimaging meta-analysis](https://www.sciencedirect.com/science/article/pii/S0149763417303111) \| Elsevier
+
+<br>
+
+[Ten simple rules for the computational modeling of behavioral data](https://elifesciences.org/articles/49547) \| eLife
+
+<br>
+
+[Ten simple rules for conducting umbrella reviews](https://mentalhealth.bmj.com/content/21/3/95) \| BMJ
+
+<br>
+
+[Ten Simple Rules for Reproducible Computational Research](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285) \| PLOS
+
+<br>
+
+[Ten simple rules for dynamic causal modeling](https://www.sciencedirect.com/science/article/pii/S1053811909011999) \| Elsevier
+:::
+
+For good measurement I am also going to plot articles vs total citations
+
+```{r eval=FALSE}
+clean_data%>% 
+  ggplot(aes(x=`Times cited`))+
+  geom_histogram(colour="black",fill="darkred",binwidth = 10)+
+  labs(title = "The impact of 10 simple rules for....", y="Number of articles",x="Total citations",caption = "Data source: Dimensions")+
   theme_economist()+
   theme(axis.text.y = element_text(hjust = 0),
         axis.title.y = element_text(vjust = 5),
         axis.text.x = element_text(angle=90))
 
-ggsave("plot3.png",dpi="retina")
 ```
 
-![](plot3.png)
+![Histogram showing most articles with ten simple rules in the title are in the low spectrum of number of citations](plot4.png)
+
+Despite PLOS having the large majority of *ten simple rules* articles, the more impactful ones (citation wise) were published at different publishers. However, in general the majority of articles remain on the lower end of the citation spectrum, including some newer articles that may not have yet achieved their breakthrough.
 
 At this point, I decided to turn to the internet for some additional clues into PLOS and its "Ten Simple Rules" series, just to discover my findings were not particularly novel.
 
-[Stephen Heard](https://x.com/StephenBHeard) had already commented on this trend on his [blog](https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/) less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighting the epitome article of the *Ten simple rules*... series: [Ten Simple Rules for Writing a PLOS Ten Simple Rules Article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858). Published back in 2014, the article is still a fun read with some interesting data on the series. Back then Philip E. Bourne was present in almost half of the papers on the series.
+[Stephen Heard](https://x.com/StephenBHeard) had already commented on this trend on his [blog](https://scientistseessquirrel.wordpress.com/2023/10/31/10-simple-rules-for-writing-10-simple-rules-papers/) less than a year ago. Along with a quality parody of this trending genre of papers, his blog ends up highlighting the epitome article of the *Ten simple rules*... series: [Ten Simple Rules for Writing a PLOS Ten Simple Rules Article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003858). Published back in 2014, the article is still a fun read with some interesting data on the series. Back then, Philip E. Bourne was present in almost half of the papers on the series.
 
 ![2014 Pie chart from PLOS article shows Philip E. Bourne presence in the series](pcbi.1003858.g002.png)
 
-Later, in 2018, Philip E. Bourne would then went into publishing [One thousand simple rules](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006670). The paper ends rising some interesting questions about the series, its novelty and the future of science dissemination.
+### The future of the *ten simple rules* series
 
-But here we are in 2024, and the series is still going strong, delivering ten rules at a time (several times a year).
+Later, in 2018, Philip E. Bourne would then went into publishing [One thousand simple rules](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006670). The paper ends rising some interesting questions about the series, its novelty and the future of science dissemination. This article goes as far as questioning of whether these articles might be better suited as blogs. But here we are in 2024, and the series is still going strong. With the current PLOS article processing chargess, each published rule cost authors approximately \$296, perhaps an extra factor to reconsider the long term viability of the series in its current format. At glance, some articles in the series seem to offer basic guidelines and common sense, with a wide range of tones in them (From [Ten simple rules to win a Nobel prize](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004084) to [Ten simple rules to ruin a collaborative environment](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009957)). In 2023, the number of articles published in the series was halved compared to 2022, although the 2024 "harvest" is on track to match 2023's output. As 2025 marks the 20th anniversary of the "Ten Simple Rules" series, will PLOS plan a special edition to celebrate the milestone?
 
 ::: callout-note
 PLOS articles can be downloaded for text mining purposes from [here](https://plos.org/text-and-data-mining/). In hindsight, I should have use this to get some better metrics for the *Ten simple rules...* series. I have got a tutorial on text mining PLOS data [here](https://pgomba.github.io/pgb_website/posts/08_10_23/) in case you want to explore further.
