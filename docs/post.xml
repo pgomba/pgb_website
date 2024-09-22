@@ -924,15 +924,20 @@ Click here to find Keyword nodes
 <h3 class="anchored" data-anchor-id="step-2-the-code">Step 2: The code</h3>
 <p>Once again we to load the R libraries we plan to use for this project:</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse) </span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(rvest)</span></code></pre></div>
+</details>
 </div>
 <p>It is time now to download the article <code>.html</code> document and extract the nodes. To avoid reading/downloading again and again the same article it is best to store it as an object (<code>article</code>) once and work with it. This way you are “calling” only once to the host server, reducing your footprint and being less invasive.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">article<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -990,20 +995,29 @@ background-color: null;
 font-style: inherit;">html_text2</span>()</span>
 <span id="cb2-14"></span>
 <span id="cb2-15">editorial_state</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Received:" "Accepted:"</code></pre>
 </div>
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">editorial_date</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "01 Sep 2016" "03 Jan 2017"</code></pre>
 </div>
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">keywords</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Brassica rapa"   "Seed coat color" "SSR markers"     "Genetic map"    </code></pre>
 </div>
 </div>
 <p>I personally like to store the data in a data frame, with a single column containing the editorial data. On a large scale project sometimes some unexpected data (e.g.&nbsp;revision dates) is shipped with these nodes, and having everything on a single string adds flexibility later to extract data into new columns using the functions <code>mutate()</code> and <code>gsub()</code>.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">editorial_times<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -1035,6 +1049,7 @@ font-style: inherit;">data.frame</span>(editorial_times,keywords)</span>
 <span id="cb8-7"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(article_df)</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                editorial_times
 1 Received: 01 Sep 2016 - Accepted: 03 Jan 2017
@@ -1044,6 +1059,8 @@ font-style: inherit;">head</span>(article_df)</span></code></pre></div>
 </div>
 <p>A quick exercise of the use of <code>mutate</code> and <code>gsub</code> to clean a text string. The position of <code>.*</code> in the target pattern decides if the text to erase is before or after. More information on the use of <code>gsub()</code> and <code>.*</code> can be found here: <a href="https://statisticsglobe.com/r-remove-characters-before-or-after-point-in-string">Remove Characters Before or After Point in String in R (Example)</a>.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">article_df_clean<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span>article_df<span class="sc" style="color: #5E5E5E;
@@ -1093,6 +1110,7 @@ background-color: null;
 font-style: inherit;">""</span>,editorial_times))</span>
 <span id="cb10-8"></span>
 <span id="cb10-9">article_df_clean</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                editorial_times
 1 Received: 01 Sep 2016 - Accepted: 03 Jan 2017
@@ -1142,6 +1160,8 @@ font-style: inherit;">""</span>,editorial_times))</span>
 <h3 class="anchored" data-anchor-id="step4-obtaining-the-list-of-articles">Step4: Obtaining the list of articles</h3>
 <p>Now we know were to find a list of articles. Let´s say we want a list with all Biology Open articles (2012 to present. How do we get that? Notice in the sitemap, the URL address for each year, is wrapped on a <code>loc</code> node. This is what we are after to start with:</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-5_144e98983d5c02b0f723ef192f862a7c">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">each_year_sitemap<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -1169,6 +1189,7 @@ background-color: null;
 font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5</span>]</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "https://journals.biologists.com/data/sitemap/Site_1000001/J1000003/manifest_2012.xml"
 [2] "https://journals.biologists.com/data/sitemap/Site_1000001/J1000003/manifest_2013.xml"
@@ -1179,6 +1200,8 @@ font-style: inherit;">5</span>]</span></code></pre></div>
 </div>
 <p>And we can now use <code>each_year_sitemap</code> in a loop to extract the articles for each of the years and store the links in <code>URL_data_frame</code>, which should have &gt; 3,000 articles.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-6_593f65ac76c4ce1978f9d886c910e99c">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">URL_data_frame<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -1226,6 +1249,7 @@ font-style: inherit;">as.data.frame</span>(URL))</span>
 <span id="cb14-15"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">nrow</span>(URL_data_frame)</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3031</code></pre>
 </div>
@@ -1236,6 +1260,8 @@ font-style: inherit;">nrow</span>(URL_data_frame)</span></code></pre></div>
 <p>The loop is only slightly different to those built for the other two blogs. Keep in mind each loop is a request to a host server. A large volume or request in little time is likely to get you banned (for some time or undefinitely) from the host server. The key here is find a balance to avoid this. The speed at which each instance of the loop happens depends on host server response, computer speed and internet download speed. To avoid getting kicked out we are going to add an extra one second delay using the function <code>Sys.sleep(1)</code>.</p>
 <p>Because extracting the data from the articles is at least going to take 3,000 seconds (50 min.) I´m going to recreate the example with a sub-sample of 200 articles</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">article_info<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1444,9 +1470,12 @@ font-style: inherit;">#progress bar</span></span>
 <span id="cb16-50"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">close</span>(progress_bar) </span></code></pre></div>
+</details>
 </div>
 <p>Check the object <code>article_info</code>. You might notice some articles don´t have the information we were looking for, but when you navigate into the website the information is there. This is because (in this particular case), the host server is “experiencing unusual traffic”. Instead of kicking us out of the server is redirecting to a different page. Let´s be patient, and increase the Sys.sleep() to 5 seconds and hope for better results.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">article_info<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1655,14 +1684,18 @@ font-style: inherit;">#progress bar</span></span>
 <span id="cb17-50"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">close</span>(progress_bar) </span></code></pre></div>
+</details>
 </div>
 <p>Check the object <code>article_info</code>. Slightly better now? This is why is important to find the right balance finding the best time for each instance of the loop… which usually mean you are going to spend weeks/months when targeting LARGE volumes of articles.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(article_info,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>)</span></code></pre></div>
+</details>
 </div>
 </section>
 <section id="extra" class="level3">
@@ -1712,12 +1745,15 @@ font-style: inherit;">10</span>)</span></code></pre></div>
 </div>
 <p>After restarting your R session, is time to load all necessary libraries</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(rcrossref)</span></code></pre></div>
+</details>
 </div>
 </section>
 <section id="step-2-choosing-a-journal" class="level3">
@@ -1735,6 +1771,8 @@ font-style: inherit;">library</span>(rcrossref)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="step-3-go-fetch">Step 3: Go fetch!</h3>
 <p>Let´s build now the data request using R code using the <code>rcrossref</code> function <code>cr_works()</code>. I´m going to use the online ISSN (1755-1668) and select only publications published in 2015 and after. If you wish to obtain data from all publications just drop <code>from_pub_date="2015-01-01</code> from the code below. Additionally, we set the parameter <code>cursor</code> to not have a limit in number of articles by just adding an unreasonable high number. For more information on how <code>rcrossref</code> and <code>cr_works()</code> can be used head to their documentation page <a href="https://docs.ropensci.org/rcrossref/index.html">here</a>.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-2_85818a8c9ae02f90d9c52901a47e09fe">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">journal_info<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -1760,6 +1798,7 @@ background-color: null;
 font-style: inherit;">cursor_max =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">500000</span>)</span></code></pre></div>
+</details>
 </div>
 <p>Once the code is running, it might take some minutes for the data to come back. When finished, the object <code>journal_info</code> will be a large list with 3 elements. Let´s have a look to what is inside this object on <strong>Step 4</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1773,6 +1812,8 @@ font-style: inherit;">500000</span>)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="step4-unboxing-journal_info">Step4: Unboxing “journal_info”</h3>
 <p>Now that we have <code>rcrossref</code> output (<code>journal_info</code>), lets have a look to the elements within. The first element is <code>meta</code>.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">journal_info<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>meta[<span class="dv" style="color: #AD0000;
@@ -1782,6 +1823,7 @@ background-color: null;
 font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>]</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  total_results search_terms start_index items_per_page
 1           309           NA           0             20</code></pre>
@@ -1790,6 +1832,8 @@ font-style: inherit;">4</span>]</span></code></pre></div>
 <p>This is a data frame incicating we have obtained all the Crossref data available for 309 scientific publications.</p>
 <p>This information is contained in the element <code>data</code></p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(journal_info<span class="sc" style="color: #5E5E5E;
@@ -1797,6 +1841,7 @@ background-color: null;
 font-style: inherit;">$</span>data,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>)</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 35
    alternative.id              container.title created deposited published.print
@@ -1822,6 +1867,8 @@ font-style: inherit;">10</span>)</span></code></pre></div>
 </div>
 <p>For this journal, this element is a data frame of 35 columns. Notice some of the columns (e.g.&nbsp;<code>assertion</code>) are also data frames (inception). Have a look to what information each column has to offer. Where is the editorial data we are looking for? Well, lets take a peak to the values within the tables of the column <code>assertion</code> in row number 1</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">journal_info<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>data<span class="sc" style="color: #5E5E5E;
@@ -1829,6 +1876,7 @@ background-color: null;
 font-style: inherit;">$</span>assertion[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 # A tibble: 5 × 7
@@ -1843,6 +1891,8 @@ font-style: inherit;">1</span>]</span></code></pre></div>
 </div>
 <p>There we go. The date values for editorial times are “hidden” in this table. Let´s clean the data to show this better</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">received_date <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> journal_info<span class="sc" style="color: #5E5E5E;
@@ -1912,10 +1962,14 @@ background-color: null;
 font-style: inherit;">1</span>]]</span>
 <span id="cb9-12"></span>
 <span id="cb9-13">received_date</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2018-01-13"</code></pre>
 </div>
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">accepted_date</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2018-06-30"</code></pre>
 </div>
@@ -1925,6 +1979,8 @@ font-style: inherit;">1</span>]]</span>
 <h3 class="anchored" data-anchor-id="step-5-looping-to-extract-all-journal-info">Step 5: Looping to extract all journal info</h3>
 <p>So far we know how to extract editorial data from one article. Let´s adapt some of the code from the PLOS blog to extract data for all articles in <code>journal_info</code>.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">final_table<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -2099,14 +2155,18 @@ background-color: null;
 font-style: inherit;">print</span>(count)</span>
 <span id="cb13-37">  </span>
 <span id="cb13-38">}</span></code></pre></div>
+</details>
 </div>
 <p>A quick peek into final_table shows we have now some data we can use in further analysis</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(final_table,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">15</span>)</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>    i                alternative.id received_date accepted_date reference.count
 1   1 10.1080/17550874.2018.1496365    2018-01-13    2018-06-30              57
@@ -2131,6 +2191,8 @@ font-style: inherit;">15</span>)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="extra">Extra</h3>
 <p>Extracting all scientific articles from T&amp;F using Crossref data is possible, but you will need a list (or a vector) containing all ISSNs to be targeted. These can be obtained from Scimago, although many non-indexed journals will be missing. Then, is just a matter of wrapping the above loop into another loop moving across all ISSNs:</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
@@ -2176,6 +2238,7 @@ font-style: inherit;">###</span></span>
 <span id="cb16-7">  }</span>
 <span id="cb16-8">    </span>
 <span id="cb16-9">}</span></code></pre></div>
+</details>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Tip">
 <div class="callout-header d-flex align-content-center">
@@ -2248,18 +2311,23 @@ Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <a href="https://
 <h3 class="anchored" data-anchor-id="step-3-warm-up-text-mining-one-article">Step 3: Warm up / text-mining one article</h3>
 <p>We are going to be using R packages <code>rvest</code> (for text-mining) and some of the packages contained in the <code>tidyverse</code> (e.g.<code>dplyr</code>, <code>magrittr</code>, <code>lubridate</code>, <code>stringr</code>) for data wrangling and processing.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(rvest)</span></code></pre></div>
+</details>
 </div>
 <p>I´m also going to set up the unzipped folder as the working directory. You can do this with the code: <code>setwd("C:/Users/YOUR_USER/Downloads/allofplos")</code>.</p>
 <p>Let´s pick up an article to play with. For example this article from PLOS ONE: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0264546">Typology, network features and damage response in worldwide urban road systems</a>. We are going to collect information on editorial times (when was the article submitted and accepted) and whether if it belongs or not to a collection issue.</p>
 <p>To do so, we are going to target the “nodes” where the information is contained. This article can be found in the <code>allofplos</code>. Search for the file <code>journal.pone.0264546.xml</code> and open it with Notepad. Here you will find all the information on the website is available in text format. For example, the journal name is within the node <code>&lt;journal-id journal-id-type="nlm-ta"&gt;PLoS ONE&lt;/journal-id&gt;</code> , confirmation of this article being part of a collection can be found here: <code>&lt;pub-date pub-type="collection"&gt;</code> , and editorial times (received and accepted) can be found at <code>&lt;date date-type="received"&gt;</code> and <code>&lt;date date-type="accepted"&gt;</code>, respectively. Let´s get to work:</p>
 <p>First, we read and store in an object the .xml file</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Use read_html to "read" a .xml file</span></span>
@@ -2270,9 +2338,12 @@ background-color: null;
 font-style: inherit;">read_html</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"journal.pone.0264546.xml"</span>)</span></code></pre></div>
+</details>
 </div>
 <p>Now we are going to look for the name of the journal.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">journal_name<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span>article<span class="sc" style="color: #5E5E5E;
@@ -2294,9 +2365,12 @@ background-color: null;
 font-style: inherit;">1</span>]</span>
 <span id="cb3-4"></span>
 <span id="cb3-5">journal_name</span></code></pre></div>
+</details>
 </div>
 <p>Let´s figure out if this article is part of a collection too.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">collection<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span>article<span class="sc" style="color: #5E5E5E;
@@ -2339,9 +2413,12 @@ font-style: inherit;">else</span>{</span>
 background-color: null;
 font-style: inherit;">"Article is not part of a collection"</span></span>
 <span id="cb4-10">}</span></code></pre></div>
+</details>
 </div>
 <p>Lastly (and slightly more complicated), lets obtain the dates when the article was received and accepted</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># target editorial times</span></span>
@@ -2468,6 +2545,7 @@ font-style: inherit;">"-"</span>)</span>
 <span id="cb5-22"></span>
 <span id="cb5-23">received_date</span>
 <span id="cb5-24">accepted_date</span></code></pre></div>
+</details>
 </div>
 <p>Easy peasy until here. On <strong>Step 4</strong> we are going to get crafty and modify the code to fit a <code>for</code> loop, text-mine and store the extracted data from ALL PLOS articles.</p>
 </section>
@@ -2475,6 +2553,8 @@ font-style: inherit;">"-"</span>)</span>
 <h3 class="anchored" data-anchor-id="step-4.-mining-loops">Step 4. Mining loops</h3>
 <p>Basically now we just have to wrap the code in a loop to go through &gt;344k articles. My approach is to create a vector with all the .xml files in the folder and create an empty table (<code>final_table</code>) which will store the results of running the loop. Is probably more efficient to work with lists (instead of data frames) and parallelize the process to reduce wait times. But, to keep it simple, I will start here:</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">list_of_articles<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -2499,9 +2579,12 @@ font-style: inherit;"># the code goes here</span></span>
 background-color: null;
 font-style: inherit;"># append text-mined data to final table code here</span></span>
 <span id="cb6-8">}</span></code></pre></div>
+</details>
 </div>
 <p>Now is time to adapt the code from <strong>Step 3</strong> for <code>i</code> to be the file name:</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">list_of_articles<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -2702,6 +2785,7 @@ font-style: inherit;">bind_rows</span>(final_table,temp_df)</span>
 <span id="cb7-40">  </span>
 <span id="cb7-41">  </span>
 <span id="cb7-42">}</span></code></pre></div>
+</details>
 </div>
 <p>and voilà! We have now a loop that in theory should work… but it does not. I see two issues already.</p>
 <ol type="1">
@@ -2709,6 +2793,8 @@ font-style: inherit;">bind_rows</span>(final_table,temp_df)</span>
 <li><p>Sometimes an article does not have the editorial data we are looking for and the objects returns <code>character(empty)</code>. The temporary data frame <code>temp_df</code> can´t have this class of items. We are going to have to transform these into a string (e.g.&nbsp;“Not available”) to make it work.</p></li>
 </ol>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">list_of_articles<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -2970,9 +3056,12 @@ background-color: null;
 font-style: inherit;">bind_rows</span>(final_table,temp_df)</span>
 <span id="cb8-56">  </span>
 <span id="cb8-57">}  </span></code></pre></div>
+</details>
 </div>
 <p>Well, the loop is going to be working now for quite some time. If you are using Rstudio, you can refresh the global environment to check which <code>i</code> the loop is at. But let´s add a counter to the loop too!</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">list_of_articles<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -3248,6 +3337,7 @@ background-color: null;
 font-style: inherit;">print</span>(count)</span>
 <span id="cb9-58">  </span>
 <span id="cb9-59">}  </span></code></pre></div>
+</details>
 </div>
 <p>This is the basic loop to text-mine PLOS corpus. The more <code>final_table</code> grows in size, the slower it will perform. This can be solved by wrapping the loop into another loop to save <code>final_table</code> into a .csv file every 10,000 articles, clear <code>final_table</code> and continue the loop for another 10,000 articles.</p>
 </section>
@@ -3255,6 +3345,8 @@ font-style: inherit;">print</span>(count)</span>
 <h3 class="anchored" data-anchor-id="extra">Extra</h3>
 <p>Maybe you are not interested in exploring the whole corpus and just want to work in a sample. To take a sample of 10,000 random articles you can just run the following code:</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">sample_articles<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
@@ -3262,10 +3354,13 @@ background-color: null;
 font-style: inherit;">sample</span>(list_of_articles,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10000</span>)</span></code></pre></div>
+</details>
 </div>
 <p>Remember to replace <code>list_of_articles</code> with <code>sample_articles</code> at the start of the loop!</p>
 <p>Similarly, you might want to focus in a particular PLOS journal. We can use the code journal to filter out all the unwanted journals since this code is available in the file name. If for example, we want to target PLOS Biology articles, the code “pbio” will select only this journal:</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">PLOS_Biology_articles<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span>list_of_articles[<span class="fu" style="color: #4758AB;
@@ -3273,6 +3368,7 @@ background-color: null;
 font-style: inherit;">grep</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"pbio"</span>,list_of_articles)]</span></code></pre></div>
+</details>
 </div>
 </section>
 <section id="references" class="level3">

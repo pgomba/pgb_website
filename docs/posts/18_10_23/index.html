@@ -264,11 +264,16 @@ Click here to find Keyword nodes
 <h3 class="anchored" data-anchor-id="step-2-the-code">Step 2: The code</h3>
 <p>Once again we to load the R libraries we plan to use for this project:</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>It is time now to download the article <code>.html</code> document and extract the nodes. To avoid reading/downloading again and again the same article it is best to store it as an object (<code>article</code>) once and work with it. This way you are “calling” only once to the host server, reducing your footprint and being less invasive.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>article<span class="ot">&lt;-</span><span class="fu">read_html</span>(<span class="st">"https://journals.biologists.com/bio/article/6/2/278/1846/Identification-of-SSR-markers-closely-linked-to"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>editorial_state<span class="ot">&lt;-</span>article<span class="sc">%&gt;%</span></span>
@@ -284,20 +289,29 @@ Click here to find Keyword nodes
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>()</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>editorial_state</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Received:" "Accepted:"</code></pre>
 </div>
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>editorial_date</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "01 Sep 2016" "03 Jan 2017"</code></pre>
 </div>
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>keywords</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Brassica rapa"   "Seed coat color" "SSR markers"     "Genetic map"    </code></pre>
 </div>
 </div>
 <p>I personally like to store the data in a data frame, with a single column containing the editorial data. On a large scale project sometimes some unexpected data (e.g.&nbsp;revision dates) is shipped with these nodes, and having everything on a single string adds flexibility later to extract data into new columns using the functions <code>mutate()</code> and <code>gsub()</code>.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>editorial_times<span class="ot">&lt;-</span><span class="fu">paste</span>(editorial_state,editorial_date,<span class="at">collapse =</span>  <span class="st">" - "</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>keywords <span class="ot">&lt;-</span><span class="fu">paste</span>(keywords,<span class="at">collapse =</span>  <span class="st">", "</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -305,6 +319,7 @@ Click here to find Keyword nodes
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>article_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(editorial_times,keywords)</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(article_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                editorial_times
 1 Received: 01 Sep 2016 - Accepted: 03 Jan 2017
@@ -314,6 +329,8 @@ Click here to find Keyword nodes
 </div>
 <p>A quick exercise of the use of <code>mutate</code> and <code>gsub</code> to clean a text string. The position of <code>.*</code> in the target pattern decides if the text to erase is before or after. More information on the use of <code>gsub()</code> and <code>.*</code> can be found here: <a href="https://statisticsglobe.com/r-remove-characters-before-or-after-point-in-string">Remove Characters Before or After Point in String in R (Example)</a>.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>article_df_clean<span class="ot">&lt;-</span>article_df<span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Delete everything before "Received:"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Received=</span><span class="fu">gsub</span>(<span class="st">".*Received:"</span>,<span class="st">""</span>,editorial_times),</span>
@@ -323,6 +340,7 @@ Click here to find Keyword nodes
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Accepted=</span><span class="fu">gsub</span>(<span class="st">".*Accepted:"</span>,<span class="st">""</span>,editorial_times))</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>article_df_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                editorial_times
 1 Received: 01 Sep 2016 - Accepted: 03 Jan 2017
@@ -372,11 +390,14 @@ Click here to find Keyword nodes
 <h3 class="anchored" data-anchor-id="step4-obtaining-the-list-of-articles">Step4: Obtaining the list of articles</h3>
 <p>Now we know were to find a list of articles. Let´s say we want a list with all Biology Open articles (2012 to present. How do we get that? Notice in the sitemap, the URL address for each year, is wrapped on a <code>loc</code> node. This is what we are after to start with:</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-5_144e98983d5c02b0f723ef192f862a7c">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>each_year_sitemap<span class="ot">&lt;-</span><span class="fu">read_html</span>(<span class="st">"https://journals.biologists.com/data/sitemap/Site_1000001/sitemap_J1000003.xml"</span>)<span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"loc"</span>)<span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>each_year_sitemap[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "https://journals.biologists.com/data/sitemap/Site_1000001/J1000003/manifest_2012.xml"
 [2] "https://journals.biologists.com/data/sitemap/Site_1000001/J1000003/manifest_2013.xml"
@@ -387,6 +408,8 @@ Click here to find Keyword nodes
 </div>
 <p>And we can now use <code>each_year_sitemap</code> in a loop to extract the articles for each of the years and store the links in <code>URL_data_frame</code>, which should have &gt; 3,000 articles.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-6_593f65ac76c4ce1978f9d886c910e99c">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>URL_data_frame<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> each_year_sitemap) {</span>
@@ -402,6 +425,7 @@ Click here to find Keyword nodes
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(URL_data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3031</code></pre>
 </div>
@@ -412,6 +436,8 @@ Click here to find Keyword nodes
 <p>The loop is only slightly different to those built for the other two blogs. Keep in mind each loop is a request to a host server. A large volume or request in little time is likely to get you banned (for some time or undefinitely) from the host server. The key here is find a balance to avoid this. The speed at which each instance of the loop happens depends on host server response, computer speed and internet download speed. To avoid getting kicked out we are going to add an extra one second delay using the function <code>Sys.sleep(1)</code>.</p>
 <p>Because extracting the data from the articles is at least going to take 3,000 seconds (50 min.) I´m going to recreate the example with a sub-sample of 200 articles</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>article_info<span class="ot">&lt;-</span> <span class="fu">data.frame</span>() <span class="co">#Empty data frame to store extracted data</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>URLs<span class="ot">&lt;-</span> <span class="fu">sample</span>(URL_data_frame<span class="sc">$</span>URL,<span class="dv">100</span>) <span class="co"># Grab a sample of 100 articles and store them in vector form.</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -462,9 +488,12 @@ Click here to find Keyword nodes
 <span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(progress_bar) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Check the object <code>article_info</code>. You might notice some articles don´t have the information we were looking for, but when you navigate into the website the information is there. This is because (in this particular case), the host server is “experiencing unusual traffic”. Instead of kicking us out of the server is redirecting to a different page. Let´s be patient, and increase the Sys.sleep() to 5 seconds and hope for better results.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>article_info<span class="ot">&lt;-</span> <span class="fu">data.frame</span>() <span class="co">#Empty data frame to store extracted data</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>URLs<span class="ot">&lt;-</span> <span class="fu">sample</span>(URL_data_frame<span class="sc">$</span>URL,<span class="dv">100</span>) <span class="co"># Grab a sample of 100 articles and store them in vector form.</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -515,10 +544,14 @@ Click here to find Keyword nodes
 <span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(progress_bar) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Check the object <code>article_info</code>. Slightly better now? This is why is important to find the right balance finding the best time for each instance of the loop… which usually mean you are going to spend weeks/months when targeting LARGE volumes of articles.</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(article_info,<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="extra" class="level3">
