@@ -2,7 +2,7 @@
 title: "Pablo Gómez Barreiro"
 image: images/profile.jpg
 about:
-  template: trestles
+  template: broadside
   links:
     - icon: twitter
       text: Twitter
