@@ -4,13 +4,12 @@ format: html
 css: rpack.css
 ---
 
-<h2>**seedTools** <a href="https://pgomba.github.io/seedTools/"> <img src="images/seed_logo.png" alt="seedTool logo" width="132" style="float: right;" /> </a> </h2>
+<h2>**seedTools** <a href="https://pgomba.github.io/seedTools/"> <img src="images/seed_logo.png" alt="seedTool logo" width="132" style="float: right;"/> </a></h2>
 
 An R package with a collection of functions to simplify seed biology related tasks
 
 <br>
 
+<h2>**MDPIexploreR** <a href="https://pgomba.github.io/MDPI_explorer/"><img src="images/mdpiexplorer_logo.png" alt="MDPIexploreR logo" width="132" style="float: right;"/> </a></h2>
 
-<h2>**MDPIexploreR**  <a href="https://pgomba.github.io/MDPI_explorer/"><img src="images/mdpiexplorer_logo.png" alt="MDPIexploreR logo" width="132" style="float: right;" /> </a> </h2>
-
-An R package designed to facilitate sustainable web scraping of data from MDPI journals and articles, as well as assist in their analysis.
+An R package designed to facilitate sustainable web scraping of data from MDPI journals and articles, as well as assist in their analysis. Available on CRAN!

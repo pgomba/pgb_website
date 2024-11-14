@@ -2,9 +2,11 @@
 title: "Publications"
 ---
 
-Hanson, M.A., **Gómez Barreiro, P**., Crosseto, P., Brockington, D. (2023). The strain in scientific publishing. *arXiv*. [Link](https://arxiv.org/abs/2309.15884) [Project Website](https://the-strain-on-scientific-publishing.github.io/website/)
+Hanson, M. A., **Barreiro, P. G**., Crosetto, P., & Brockington, D. (2024). The strain on scientific publishing. *Quantitative Science Studies*, 1-21.[Link](https://direct.mit.edu/qss/article/doi/10.1162/qss_a_00327/124269) [Project Website](https://the-strain-on-scientific-publishing.github.io/website/) [Preprint](https://arxiv.org/abs/2309.15884)
 
-Castillo-Lorenzo, E., Peguero, B., Jiménez, F., Encarnación, W., **Gómez Barreiro, P**., Clase, T., García, R., Ulian, T. (2022). Árboles autóctonos de la República dominicana: conservación de semillas y propagación para una reforestación sustentable. [Link](https://pgomba.github.io/arbolesRD/) 
+Castillo-Lorenzo, E., Breman, E., **Gómez Barreiro, P.**, & Viruel, J. (2024). Current status of global conservation and characterisation of wild and cultivated Brassicaceae genetic resources. *GigaScience*, *13*, giae050. [Link](https://academic.oup.com/gigascience/article/doi/10.1093/gigascience/giae050/7728957)
+
+Castillo-Lorenzo, E., Peguero, B., Jiménez, F., Encarnación, W., **Gómez Barreiro, P**., Clase, T., García, R., Ulian, T. (2022). Árboles autóctonos de la República dominicana: conservación de semillas y propagación para una reforestación sustentable. [Link](https://pgomba.github.io/arbolesRD/)
 
 Lamont, B., **Gómez Barreiro, P**., Newton, R. J. (2022). Seed-coat thickness explains contrasting germination responses to smoke and heat in Leucadendron. *Seed Science Research*. [Link](https://www.cambridge.org/core/journals/seed-science-research/article/seedcoat-thickness-explains-contrasting-germination-responses-to-smoke-and-heat-in-leucadendron/1E6D41710E76456DD8C23F0118639680)
 
@@ -29,4 +31,3 @@ Visscher, A. M., Yeo, M., **Gómez Barreiro, P**., Stuppy, W., Frances, A. L., D
 Mattana, E., Sacande, M., Bradamante, G., **Gómez Barreiro, P**., Sanogo, S., & Ulian, T. (2018). Understanding biological and ecological factors affecting seed germination of the multipurpose tree *Anogeissus leiocarpa*. *Plant Biology*, 20(3), 602-609. [Link](https://onlinelibrary.wiley.com/doi/abs/10.1111/plb.12702)
 
 Mattana, E., Sacande, M., Sanogo, K. A., Lira, R., **Gómez Barreiro, P**., Rogledi, M., & Ulian, T. (2017). Thermal requirements for seed germination of underutilized *Lippia* species. *South African Journal of Botany*, 109, 223-230. [Link](https://www.sciencedirect.com/science/article/pii/S0254629916300424)
-
