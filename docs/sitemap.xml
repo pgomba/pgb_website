@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pgomba.github.io/pgb_website/datasets.html</loc>
-    <lastmod>2024-11-14T18:26:40.947Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pgomba.github.io/pgb_website/index.html</loc>
-    <lastmod>2024-11-14T18:26:41.946Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pgomba.github.io/pgb_website/main.html</loc>
-    <lastmod>2024-11-14T18:26:42.605Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pgomba.github.io/pgb_website/other_outputs.html</loc>
-    <lastmod>2024-11-14T18:26:43.291Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pgomba.github.io/pgb_website/post.html</loc>
-    <lastmod>2024-11-14T18:26:45.601Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pgomba.github.io/pgb_website/posts/02_09_24/index.html</loc>
-    <lastmod>2024-11-14T18:26:47.600Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pgomba.github.io/pgb_website/posts/08_10_23/index.html</loc>
-    <lastmod>2024-11-14T18:26:49.722Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pgomba.github.io/pgb_website/posts/11_10_23/index.html</loc>
-    <lastmod>2024-11-14T18:26:51.586Z</lastmod>
+    <loc>https://pgomba.github.io/pgb_website/r_Packages.html</loc>
+    <lastmod>2024-11-14T18:27:49.758Z</lastmod>
   </url>
   <url>
     <loc>https://pgomba.github.io/pgb_website/posts/18_10_23/index.html</loc>
-    <lastmod>2024-11-14T18:26:53.639Z</lastmod>
+    <lastmod>2024-08-28T16:40:11.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pgomba.github.io/pgb_website/posts/08_10_23/index.html</loc>
+    <lastmod>2024-03-06T21:18:35.095Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pgomba.github.io/pgb_website/post.html</loc>
+    <lastmod>2023-11-19T10:47:58.305Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pgomba.github.io/pgb_website/main.html</loc>
+    <lastmod>2023-11-18T16:25:08.918Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pgomba.github.io/pgb_website/datasets.html</loc>
+    <lastmod>2023-11-18T20:27:23.639Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pgomba.github.io/pgb_website/index.html</loc>
+    <lastmod>2024-12-08T21:09:53.663Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pgomba.github.io/pgb_website/other_outputs.html</loc>
+    <lastmod>2023-11-18T20:30:54.504Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pgomba.github.io/pgb_website/posts/02_09_24/index.html</loc>
+    <lastmod>2024-09-01T13:51:20.738Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pgomba.github.io/pgb_website/posts/11_10_23/index.html</loc>
+    <lastmod>2024-03-06T21:18:52.157Z</lastmod>
   </url>
   <url>
     <loc>https://pgomba.github.io/pgb_website/publications.html</loc>
-    <lastmod>2024-11-14T18:26:54.736Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pgomba.github.io/pgb_website/r_Packages.html</loc>
-    <lastmod>2024-11-14T18:26:55.571Z</lastmod>
+    <lastmod>2024-11-14T18:23:56.318Z</lastmod>
   </url>
 </urlset>

@@ -4,9 +4,8 @@ image: images/profile.jpg
 about:
   template: broadside
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/pagomba
+    - href: https://bsky.app/profile/pagomba.bsky.social
+      text: "{{< fa brands bluesky>}} Bluesky"
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/pablo-g%C3%B3mez-barreiro-a72b4059/

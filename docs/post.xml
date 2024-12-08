@@ -9,13 +9,14 @@
 <link>https://pgomba.github.io/pgb_website/post.html</link>
 <atom:link href="https://pgomba.github.io/pgb_website/post.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.353</generator>
+<generator>quarto-1.5.57</generator>
 <lastBuildDate>Sun, 01 Sep 2024 23:00:00 GMT</lastBuildDate>
 <item>
   <title>The golden era of Ten simple rules articles</title>
   <dc:creator>Pablo Gómez Barreiro</dc:creator>
-  <link>https://pgomba.github.io/pgb_website/posts/02_09_24/index.html</link>
+  <link>https://pgomba.github.io/pgb_website/posts/02_09_24/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -24,7 +25,7 @@
 <h3 class="anchored" data-anchor-id="the-data-and-the-cleaning">The data, and the cleaning</h3>
 <p>Using <a href="https://www.dimensions.ai/">Dimensions</a>, I downloaded all available data for articles containing the phrases “10 simple rules” and “Ten simple rules.” It’s not a perfect starting point, but I’ll clean the data later. If you’d like to follow along or explore on your own, you can find the original .csv file here: <a href="https://github.com/pgomba/pgb_website/blob/main/posts/28_08_24/Dimensions-Publication-2024-08-24_19-59-19.csv">LINK</a>. Just remember to skip the first row when loading the file in R. After that, it’s simply a matter of filtering out titles that don’t contain the target keywords</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -83,11 +84,11 @@ font-style: inherit;">10</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/02_09_24/wfrr.jpg" class="img-fluid figure-img" alt="Screenshot from the 1988 movie Who framed roger rabbit?"></p>
-<figcaption class="figure-caption">For temporal context, the movie <em>Who framed roger rabbit?</em> was also published in 1988</figcaption>
+<figcaption>For temporal context, the movie <em>Who framed roger rabbit?</em> was also published in 1988</figcaption>
 </figure>
 </div>
 </div></div><div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -124,11 +125,11 @@ font-style: inherit;">5</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://link.springer.com/chapter/10.1007/978-3-031-48044-7_32"><img src="https://pgomba.github.io/pgb_website/posts/02_09_24/clickbait.PNG" class="img-fluid figure-img" alt="Screen caption of the paper titled The association between academia clickbait and impact"></a></p>
-<figcaption class="figure-caption">Clickbait titles in academia are on the rise, but this is not necessarily correlated with an increase of citations</figcaption>
+<figcaption>Clickbait titles in academia are on the rise, but this is not necessarily correlated with an increase of citations</figcaption>
 </figure>
 </div>
 </div></div><div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -244,7 +245,7 @@ font-style: inherit;">90</span>))</span></code></pre></div>
 <p>a lot! About 300 of “10 simple rules” papers. That means in the scientific literature there are at least 3000 simple rules!</p>
 <p>My next question was, “Where are all these articles being published?” When I saw the answer, my first thought was that I must have made an embarrassing mistake during data cleaning or miswritten something in the code. But nope, the data was correct—papers titled <em>Ten Simple Rules</em> have a clear and distinct origin.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">clean_data<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -405,7 +406,7 @@ font-style: inherit;">5</span>))</span></code></pre></div>
 <p><img src="https://pgomba.github.io/pgb_website/posts/02_09_24/plot2.png" class="img-fluid" alt="A graph showing the journal PLOS Computational Biology has published the large majority of articles with the words &quot;ten simple rules&quot; in its title"></p>
 <p>The large majority of these papers are coming from <em>PLOS Computational Biology</em>, and of course it’s no coincidence that their Editor-in-Chief published the first modern <em>Ten Simple Rules</em> paper back in 2005. This became a series, with him leading the list of authors who had articles published in it.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -462,7 +463,7 @@ font-style: inherit;">5</span>)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="the-impact-of-10-simple-rules-for">The impact of 10 simple rules for</h3>
 <p>Dimensions data also includes article citation numbers. To assess the impact of these papers over time, I decided to track the number of citations they accumulate each year, adding 1 to avoid dividing by zero for articles published in 2024.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -730,7 +731,7 @@ font-style: inherit;">"bottom"</span>)</span></code></pre></div>
 <p><a href="https://www.sciencedirect.com/science/article/pii/S1053811909011999">Ten simple rules for dynamic causal modeling</a> | Elsevier</p>
 </div></div><p>For good measurement I am also going to plot articles vs total citations</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">clean_data<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -827,7 +828,7 @@ font-style: inherit;">90</span>))</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/02_09_24/plot4.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Histogram showing most articles with ten simple rules in the title are in the low spectrum of number of citations</figcaption>
+<figcaption>Histogram showing most articles with ten simple rules in the title are in the low spectrum of number of citations</figcaption>
 </figure>
 </div>
 <p>Despite PLOS having the large majority of <em>ten simple rules</em> articles, the more impactful ones (citation wise) were published at different publishers. However, in general the majority of articles remain on the lower end of the citation spectrum, including some newer articles that may not have yet achieved their breakthrough.</p>
@@ -836,7 +837,7 @@ font-style: inherit;">90</span>))</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/02_09_24/pcbi.1003858.g002.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">2014 Pie chart from PLOS article shows Philip E. Bourne presence in the series</figcaption>
+<figcaption>2014 Pie chart from PLOS article shows Philip E. Bourne presence in the series</figcaption>
 </figure>
 </div>
 </section>
@@ -865,15 +866,16 @@ Note
   <category>R</category>
   <category>PLOS</category>
   <category>Data analysis</category>
-  <guid>https://pgomba.github.io/pgb_website/posts/02_09_24/index.html</guid>
+  <guid>https://pgomba.github.io/pgb_website/posts/02_09_24/</guid>
   <pubDate>Sun, 01 Sep 2024 23:00:00 GMT</pubDate>
   <media:content url="https://pgomba.github.io/pgb_website/posts/02_09_24/thumbn.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Web-scraping a journal (Biology Open) using R</title>
   <dc:creator>Pablo Gómez Barreiro</dc:creator>
-  <link>https://pgomba.github.io/pgb_website/posts/18_10_23/index.html</link>
+  <link>https://pgomba.github.io/pgb_website/posts/18_10_23/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -885,21 +887,21 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/18_10_23/editorial.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Editorial info shows after click on Article history button - screenshot</figcaption>
+<figcaption>Editorial info shows after click on Article history button - screenshot</figcaption>
 </figure>
 </div>
 <p>Right clicking in the editorial data pop-up will show a menu with several options depending on your browser. If you are using Firefox, select the button <code>Insepct (Q)</code></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/18_10_23/firefox.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Right click in editorial time to show browser menu - screenshot</figcaption>
+<figcaption>Right click in editorial time to show browser menu - screenshot</figcaption>
 </figure>
 </div>
 <p>Once you click <code>Inspect (Q)</code> (or the equivalent on your browser) the screen will split in two and will show the <code>html</code> code linked to the editorial times.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/18_10_23/html_code.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Article html code - screenshot</figcaption>
+<figcaption>Article html code - screenshot</figcaption>
 </figure>
 </div>
 <p>Our target nodes are going to be <code>wi-state</code> and <code>wi-date</code>. For extra points we are going to target Keywords too, but I´ll let you figure out with nodes we need to target for that (click below to get the answer)</p>
@@ -924,7 +926,7 @@ Click here to find Keyword nodes
 <h3 class="anchored" data-anchor-id="step-2-the-code">Step 2: The code</h3>
 <p>Once again we to load the R libraries we plan to use for this project:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -936,7 +938,7 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
 </div>
 <p>It is time now to download the article <code>.html</code> document and extract the nodes. To avoid reading/downloading again and again the same article it is best to store it as an object (<code>article</code>) once and work with it. This way you are “calling” only once to the host server, reducing your footprint and being less invasive.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">article<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -999,14 +1001,14 @@ font-style: inherit;">html_text2</span>()</span>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Received:" "Accepted:"</code></pre>
 </div>
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">editorial_date</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "01 Sep 2016" "03 Jan 2017"</code></pre>
 </div>
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">keywords</span></code></pre></div>
 </details>
@@ -1016,7 +1018,7 @@ font-style: inherit;">html_text2</span>()</span>
 </div>
 <p>I personally like to store the data in a data frame, with a single column containing the editorial data. On a large scale project sometimes some unexpected data (e.g.&nbsp;revision dates) is shipped with these nodes, and having everything on a single string adds flexibility later to extract data into new columns using the functions <code>mutate()</code> and <code>gsub()</code>.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">editorial_times<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1059,7 +1061,7 @@ font-style: inherit;">head</span>(article_df)</span></code></pre></div>
 </div>
 <p>A quick exercise of the use of <code>mutate</code> and <code>gsub</code> to clean a text string. The position of <code>.*</code> in the target pattern decides if the text to erase is before or after. More information on the use of <code>gsub()</code> and <code>.*</code> can be found here: <a href="https://statisticsglobe.com/r-remove-characters-before-or-after-point-in-string">Remove Characters Before or After Point in String in R (Example)</a>.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">article_df_clean<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1130,28 +1132,28 @@ font-style: inherit;">""</span>,editorial_times))</span>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/18_10_23/sitemap.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">robots.txt - screenshot</figcaption>
+<figcaption>robots.txt - screenshot</figcaption>
 </figure>
 </div>
 <p>Let´s take a peek to the sitemap now:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/18_10_23/sitemap2.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Sitemap - Part I - screenshot</figcaption>
+<figcaption>Sitemap - Part I - screenshot</figcaption>
 </figure>
 </div>
 <p>The sitemap contains seven <code>.xml</code> links. Every publisher has their own ecosystem of sitemaps. Some are more complicated to understand than others. On this one is fair to assume they have a sitemap for each of the journals of The Company of Biologists, and we just need to keep digging further to find our target (Biology Open). Let´s now travel to the first link: <a href="https://journals.biologists.com/data/sitemap/Site_1000001/sitemap_J1000003.xml" class="uri">https://journals.biologists.com/data/sitemap/Site_1000001/sitemap_J1000003.xml</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/18_10_23/sitemap3.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Another sitemap! - screenshot</figcaption>
+<figcaption>Another sitemap! - screenshot</figcaption>
 </figure>
 </div>
 <p>And its another sitemap. At least this one seems to be organized by dates, but we still don´t know for which journal they are. Let´s go find what is inside the URL <a href="https://journals.biologists.com/data/sitemap/Site_1000001/J1000003/manifest_2012.xml" class="uri">https://journals.biologists.com/data/sitemap/Site_1000001/J1000003/manifest_2012.xml</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/18_10_23/sitemap4.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Surprise, another sitemap - screenshot</figcaption>
+<figcaption>Surprise, another sitemap - screenshot</figcaption>
 </figure>
 </div>
 <p>This time we finally strike gold. This seems to be a list of articles, from 2012, and from the URL (<code>https://journals.biologists.com/bio/</code>) I can see they all belong to Biology Open. In any case, is always worth travelling across different sitemaps to understand the architecture of the website and ensure we are not missing anything.</p>
@@ -1160,7 +1162,7 @@ font-style: inherit;">""</span>,editorial_times))</span>
 <h3 class="anchored" data-anchor-id="step4-obtaining-the-list-of-articles">Step4: Obtaining the list of articles</h3>
 <p>Now we know were to find a list of articles. Let´s say we want a list with all Biology Open articles (2012 to present. How do we get that? Notice in the sitemap, the URL address for each year, is wrapped on a <code>loc</code> node. This is what we are after to start with:</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-5_144e98983d5c02b0f723ef192f862a7c">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">each_year_sitemap<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1200,7 +1202,7 @@ font-style: inherit;">5</span>]</span></code></pre></div>
 </div>
 <p>And we can now use <code>each_year_sitemap</code> in a loop to extract the articles for each of the years and store the links in <code>URL_data_frame</code>, which should have &gt; 3,000 articles.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-6_593f65ac76c4ce1978f9d886c910e99c">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">URL_data_frame<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1210,8 +1212,10 @@ font-style: inherit;">data.frame</span>()</span>
 <span id="cb14-2"></span>
 <span id="cb14-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> each_year_sitemap) {</span>
 <span id="cb14-4">  </span>
 <span id="cb14-5">  articles<span class="ot" style="color: #003B4F;
@@ -1260,7 +1264,7 @@ font-style: inherit;">nrow</span>(URL_data_frame)</span></code></pre></div>
 <p>The loop is only slightly different to those built for the other two blogs. Keep in mind each loop is a request to a host server. A large volume or request in little time is likely to get you banned (for some time or undefinitely) from the host server. The key here is find a balance to avoid this. The speed at which each instance of the loop happens depends on host server response, computer speed and internet download speed. To avoid getting kicked out we are going to add an extra one second delay using the function <code>Sys.sleep(1)</code>.</p>
 <p>Because extracting the data from the articles is at least going to take 3,000 seconds (50 min.) I´m going to recreate the example with a sub-sample of 200 articles</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">article_info<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1311,8 +1315,10 @@ font-style: inherit;">0</span></span>
 <span id="cb16-7"></span>
 <span id="cb16-8"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> URLs) {</span>
 <span id="cb16-9">  </span>
 <span id="cb16-10">  article<span class="ot" style="color: #003B4F;
@@ -1339,6 +1345,7 @@ font-style: inherit;">html_text2</span>()</span>
 <span id="cb16-15">  </span>
 <span id="cb16-16">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(editorial_state,<span class="fu" style="color: #4758AB;
@@ -1353,6 +1360,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb16-18">  } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb16-19">    editorial_state<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1376,6 +1384,7 @@ font-style: inherit;">html_text2</span>()</span>
 <span id="cb16-24">  </span>
 <span id="cb16-25">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(editorial_date,<span class="fu" style="color: #4758AB;
@@ -1390,6 +1399,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb16-27">  } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb16-28">    editorial_date<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1474,7 +1484,7 @@ font-style: inherit;">close</span>(progress_bar) </span></code></pre></div>
 </div>
 <p>Check the object <code>article_info</code>. You might notice some articles don´t have the information we were looking for, but when you navigate into the website the information is there. This is because (in this particular case), the host server is “experiencing unusual traffic”. Instead of kicking us out of the server is redirecting to a different page. Let´s be patient, and increase the Sys.sleep() to 5 seconds and hope for better results.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">article_info<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1525,8 +1535,10 @@ font-style: inherit;">0</span></span>
 <span id="cb17-7"></span>
 <span id="cb17-8"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> URLs) {</span>
 <span id="cb17-9">  </span>
 <span id="cb17-10">  article<span class="ot" style="color: #003B4F;
@@ -1553,6 +1565,7 @@ font-style: inherit;">html_text2</span>()</span>
 <span id="cb17-15">  </span>
 <span id="cb17-16">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(editorial_state,<span class="fu" style="color: #4758AB;
@@ -1567,6 +1580,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb17-18">  } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb17-19">    editorial_state<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1590,6 +1604,7 @@ font-style: inherit;">html_text2</span>()</span>
 <span id="cb17-24">  </span>
 <span id="cb17-25">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(editorial_date,<span class="fu" style="color: #4758AB;
@@ -1604,6 +1619,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb17-27">  } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb17-28">    editorial_date<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1688,7 +1704,7 @@ font-style: inherit;">close</span>(progress_bar) </span></code></pre></div>
 </div>
 <p>Check the object <code>article_info</code>. Slightly better now? This is why is important to find the right balance finding the best time for each instance of the loop… which usually mean you are going to spend weeks/months when targeting LARGE volumes of articles.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1720,15 +1736,16 @@ font-style: inherit;">10</span>)</span></code></pre></div>
   <category>Text-mining</category>
   <category>The Strain on Scientific Publishing</category>
   <category>Web-scraping</category>
-  <guid>https://pgomba.github.io/pgb_website/posts/18_10_23/index.html</guid>
+  <guid>https://pgomba.github.io/pgb_website/posts/18_10_23/</guid>
   <pubDate>Tue, 17 Oct 2023 23:00:00 GMT</pubDate>
   <media:content url="https://pgomba.github.io/pgb_website/posts/18_10_23/thumbn.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Text-mining a Taylor &amp; Francis journal using R</title>
   <dc:creator>Pablo Gómez Barreiro</dc:creator>
-  <link>https://pgomba.github.io/pgb_website/posts/11_10_23/index.html</link>
+  <link>https://pgomba.github.io/pgb_website/posts/11_10_23/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1739,13 +1756,13 @@ font-style: inherit;">10</span>)</span></code></pre></div>
 <p><code>rcrossref</code> encourages their users to identify themselves in every query. This is a straight forward process that is well documented <a href="https://github.com/ropensci/rcrossref">here</a>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/ropensci/rcrossref"><img src="https://pgomba.github.io/pgb_website/posts/11_10_23/polite.PNG" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">rcrossref GitHub repository - screenshot</figcaption>
+<p><a href="https://github.com/ropensci/rcrossref"><img src="https://pgomba.github.io/pgb_website/posts/11_10_23/polite.PNG" class="img-fluid figure-img" alt="rcrossref GitHub repository - screenshot"></a></p>
+<figcaption>rcrossref GitHub repository - screenshot</figcaption>
 </figure>
 </div>
 <p>After restarting your R session, is time to load all necessary libraries</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1763,7 +1780,7 @@ font-style: inherit;">library</span>(rcrossref)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/11_10_23/scimago.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Total number of documents for the journal Plant Ecology &amp; Diversity, according to Scimago - screenshot</figcaption>
+<figcaption>Total number of documents for the journal Plant Ecology &amp; Diversity, according to Scimago - screenshot</figcaption>
 </figure>
 </div>
 </section>
@@ -1771,7 +1788,7 @@ font-style: inherit;">library</span>(rcrossref)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="step-3-go-fetch">Step 3: Go fetch!</h3>
 <p>Let´s build now the data request using R code using the <code>rcrossref</code> function <code>cr_works()</code>. I´m going to use the online ISSN (1755-1668) and select only publications published in 2015 and after. If you wish to obtain data from all publications just drop <code>from_pub_date="2015-01-01</code> from the code below. Additionally, we set the parameter <code>cursor</code> to not have a limit in number of articles by just adding an unreasonable high number. For more information on how <code>rcrossref</code> and <code>cr_works()</code> can be used head to their documentation page <a href="https://docs.ropensci.org/rcrossref/index.html">here</a>.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-2_85818a8c9ae02f90d9c52901a47e09fe">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">journal_info<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1804,7 +1821,7 @@ font-style: inherit;">500000</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/11_10_23/journal_info.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">journal_info is a large list with 3 elements</figcaption>
+<figcaption>journal_info is a large list with 3 elements</figcaption>
 </figure>
 </div>
 </section>
@@ -1812,7 +1829,7 @@ font-style: inherit;">500000</span>)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="step4-unboxing-journal_info">Step4: Unboxing “journal_info”</h3>
 <p>Now that we have <code>rcrossref</code> output (<code>journal_info</code>), lets have a look to the elements within. The first element is <code>meta</code>.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">journal_info<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1832,7 +1849,7 @@ font-style: inherit;">4</span>]</span></code></pre></div>
 <p>This is a data frame incicating we have obtained all the Crossref data available for 309 scientific publications.</p>
 <p>This information is contained in the element <code>data</code></p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1867,7 +1884,7 @@ font-style: inherit;">10</span>)</span></code></pre></div>
 </div>
 <p>For this journal, this element is a data frame of 35 columns. Notice some of the columns (e.g.&nbsp;<code>assertion</code>) are also data frames (inception). Have a look to what information each column has to offer. Where is the editorial data we are looking for? Well, lets take a peak to the values within the tables of the column <code>assertion</code> in row number 1</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">journal_info<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1891,7 +1908,7 @@ font-style: inherit;">1</span>]</span></code></pre></div>
 </div>
 <p>There we go. The date values for editorial times are “hidden” in this table. Let´s clean the data to show this better</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">received_date <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1966,7 +1983,7 @@ font-style: inherit;">1</span>]]</span>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2018-01-13"</code></pre>
 </div>
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">accepted_date</span></code></pre></div>
 </details>
@@ -1979,7 +1996,7 @@ font-style: inherit;">1</span>]]</span>
 <h3 class="anchored" data-anchor-id="step-5-looping-to-extract-all-journal-info">Step 5: Looping to extract all journal info</h3>
 <p>So far we know how to extract editorial data from one article. Let´s adapt some of the code from the PLOS blog to extract data for all articles in <code>journal_info</code>.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">final_table<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1994,8 +2011,10 @@ font-style: inherit;">0</span></span>
 <span id="cb13-3"></span>
 <span id="cb13-4"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -2060,6 +2079,7 @@ font-style: inherit;">1</span>]]</span>
 <span id="cb13-15">  </span>
 <span id="cb13-16">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(received_date,<span class="fu" style="color: #4758AB;
@@ -2074,6 +2094,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb13-18">  } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb13-19">    received_date<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -2113,6 +2134,7 @@ font-style: inherit;">1</span>]]</span>
 <span id="cb13-26">  </span>
 <span id="cb13-27">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(accepted_date,<span class="fu" style="color: #4758AB;
@@ -2127,6 +2149,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb13-29">  } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb13-30">    accepted_date<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -2159,7 +2182,7 @@ font-style: inherit;">print</span>(count)</span>
 </div>
 <p>A quick peek into final_table shows we have now some data we can use in further analysis</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2191,12 +2214,14 @@ font-style: inherit;">15</span>)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="extra">Extra</h3>
 <p>Extracting all scientific articles from T&amp;F using Crossref data is possible, but you will need a list (or a vector) containing all ISSNs to be targeted. These can be obtained from Scimago, although many non-indexed journals will be missing. Then, is just a matter of wrapping the above loop into another loop moving across all ISSNs:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> vector_with_ISSNS) {</span>
 <span id="cb16-2">  </span>
 <span id="cb16-3">  journal_info<span class="ot" style="color: #003B4F;
@@ -2225,8 +2250,10 @@ font-style: inherit;">500000</span>)</span>
 <span id="cb16-4">  </span>
 <span id="cb16-5">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (j <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> journal_info<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>data) {</span>
@@ -2272,15 +2299,16 @@ Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <a href="https://
   <category>Taylor &amp; Francis</category>
   <category>Text-mining</category>
   <category>The Strain on Scientific Publishing</category>
-  <guid>https://pgomba.github.io/pgb_website/posts/11_10_23/index.html</guid>
+  <guid>https://pgomba.github.io/pgb_website/posts/11_10_23/</guid>
   <pubDate>Tue, 10 Oct 2023 23:00:00 GMT</pubDate>
   <media:content url="https://pgomba.github.io/pgb_website/posts/11_10_23/thumbn.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Text-mining PLOS articles using R</title>
   <dc:creator>Pablo Gómez Barreiro</dc:creator>
-  <link>https://pgomba.github.io/pgb_website/posts/08_10_23/index.html</link>
+  <link>https://pgomba.github.io/pgb_website/posts/08_10_23/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2291,8 +2319,12 @@ Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <a href="https://
 <p>Head to PLOS text-mining section <a href="https://plos.org/text-and-data-mining/" title="click here to head to PLOS text-mining section">here</a> and click the button <code>Download Every PLOS article</code>. As of Oct 23, this is a 7.7Gb .zip file, meaning that depending on the download speed you might have to wait for a while. It´s ok, I´ll see you in <strong>Step 2</strong>!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://plos.org/text-and-data-mining/"><img src="https://pgomba.github.io/pgb_website/posts/08_10_23/plos_web_capture.PNG" class="img-fluid figure-img" alt="PLOS corpus download button screenshoot"></a></p>
-<figcaption class="figure-caption">PLOS corpus download button - screenshoot</figcaption>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://plos.org/text-and-data-mining/"><img src="https://pgomba.github.io/pgb_website/posts/08_10_23/plos_web_capture.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="PLOS corpus download button screenshoot"></a></p>
+</figure>
+</div>
+<figcaption>PLOS corpus download button - screenshoot</figcaption>
 </figure>
 </div>
 </section>
@@ -2303,7 +2335,7 @@ Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <a href="https://
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://pgomba.github.io/pgb_website/posts/08_10_23/unzip_caption.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Unzipping allofplos.zip might take some time... - screenshot</figcaption>
+<figcaption>Unzipping allofplos.zip might take some time... - screenshot</figcaption>
 </figure>
 </div>
 </section>
@@ -2311,7 +2343,7 @@ Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <a href="https://
 <h3 class="anchored" data-anchor-id="step-3-warm-up-text-mining-one-article">Step 3: Warm up / text-mining one article</h3>
 <p>We are going to be using R packages <code>rvest</code> (for text-mining) and some of the packages contained in the <code>tidyverse</code> (e.g.<code>dplyr</code>, <code>magrittr</code>, <code>lubridate</code>, <code>stringr</code>) for data wrangling and processing.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2326,7 +2358,7 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
 <p>To do so, we are going to target the “nodes” where the information is contained. This article can be found in the <code>allofplos</code>. Search for the file <code>journal.pone.0264546.xml</code> and open it with Notepad. Here you will find all the information on the website is available in text format. For example, the journal name is within the node <code>&lt;journal-id journal-id-type="nlm-ta"&gt;PLoS ONE&lt;/journal-id&gt;</code> , confirmation of this article being part of a collection can be found here: <code>&lt;pub-date pub-type="collection"&gt;</code> , and editorial times (received and accepted) can be found at <code>&lt;date date-type="received"&gt;</code> and <code>&lt;date date-type="accepted"&gt;</code>, respectively. Let´s get to work:</p>
 <p>First, we read and store in an object the .xml file</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -2342,7 +2374,7 @@ font-style: inherit;">"journal.pone.0264546.xml"</span>)</span></code></pre></di
 </div>
 <p>Now we are going to look for the name of the journal.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">journal_name<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -2369,7 +2401,7 @@ font-style: inherit;">1</span>]</span>
 </div>
 <p>Let´s figure out if this article is part of a collection too.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">collection<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -2396,6 +2428,7 @@ font-style: inherit;">"pub-type"</span>)</span>
 <span id="cb4-5"></span>
 <span id="cb4-6"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (collection<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span><span class="st" style="color: #20794D;
@@ -2408,6 +2441,7 @@ background-color: null;
 font-style: inherit;">"Article is part of a collection"</span>)</span>
 <span id="cb4-8">}<span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span>{</span>
 <span id="cb4-9">  <span class="st" style="color: #20794D;
 background-color: null;
@@ -2417,7 +2451,7 @@ font-style: inherit;">"Article is not part of a collection"</span></span>
 </div>
 <p>Lastly (and slightly more complicated), lets obtain the dates when the article was received and accepted</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -2553,7 +2587,7 @@ font-style: inherit;">"-"</span>)</span>
 <h3 class="anchored" data-anchor-id="step-4.-mining-loops">Step 4. Mining loops</h3>
 <p>Basically now we just have to wrap the code in a loop to go through &gt;344k articles. My approach is to create a vector with all the .xml files in the folder and create an empty table (<code>final_table</code>) which will store the results of running the loop. Is probably more efficient to work with lists (instead of data frames) and parallelize the process to reduce wait times. But, to keep it simple, I will start here:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">list_of_articles<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -2569,8 +2603,10 @@ font-style: inherit;">data.frame</span>()</span>
 <span id="cb6-4"></span>
 <span id="cb6-5"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> list_of_articles) {</span>
 <span id="cb6-6">  <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -2583,7 +2619,7 @@ font-style: inherit;"># append text-mined data to final table code here</span></
 </div>
 <p>Now is time to adapt the code from <strong>Step 3</strong> for <code>i</code> to be the file name:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">list_of_articles<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -2599,8 +2635,10 @@ font-style: inherit;">data.frame</span>()</span>
 <span id="cb7-4"></span>
 <span id="cb7-5"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> list_of_articles) {</span>
 <span id="cb7-6">  </span>
 <span id="cb7-7">  article<span class="ot" style="color: #003B4F;
@@ -2793,7 +2831,7 @@ font-style: inherit;">bind_rows</span>(final_table,temp_df)</span>
 <li><p>Sometimes an article does not have the editorial data we are looking for and the objects returns <code>character(empty)</code>. The temporary data frame <code>temp_df</code> can´t have this class of items. We are going to have to transform these into a string (e.g.&nbsp;“Not available”) to make it work.</p></li>
 </ol>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">list_of_articles<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -2809,8 +2847,10 @@ font-style: inherit;">data.frame</span>()</span>
 <span id="cb8-4"></span>
 <span id="cb8-5"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> list_of_articles) {</span>
 <span id="cb8-6">  </span>
 <span id="cb8-7">  article<span class="ot" style="color: #003B4F;
@@ -2866,6 +2906,7 @@ font-style: inherit;">"pub-type"</span>)</span>
 <span id="cb8-17">  </span>
 <span id="cb8-18">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (collection<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span><span class="st" style="color: #20794D;
@@ -2876,6 +2917,7 @@ background-color: null;
 font-style: inherit;">&lt;-</span>collection</span>
 <span id="cb8-20">  }<span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span>{</span>
 <span id="cb8-21">    collection<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -2955,6 +2997,7 @@ background-color: null;
 font-style: inherit;">"-"</span>)</span>
 <span id="cb8-35">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(received_date,<span class="fu" style="color: #4758AB;
@@ -2969,6 +3012,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb8-37">      } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb8-38">        received_date<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -3019,6 +3063,7 @@ font-style: inherit;">"-"</span>)</span>
 <span id="cb8-44">  </span>
 <span id="cb8-45">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(accepted_date,<span class="fu" style="color: #4758AB;
@@ -3033,6 +3078,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb8-47">      } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb8-48">        accepted_date<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -3060,7 +3106,7 @@ font-style: inherit;">bind_rows</span>(final_table,temp_df)</span>
 </div>
 <p>Well, the loop is going to be working now for quite some time. If you are using Rstudio, you can refresh the global environment to check which <code>i</code> the loop is at. But let´s add a counter to the loop too!</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">list_of_articles<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -3080,8 +3126,10 @@ font-style: inherit;">data.frame</span>()</span>
 <span id="cb9-4"></span>
 <span id="cb9-5"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> list_of_articles) {</span>
 <span id="cb9-6">  </span>
 <span id="cb9-7">  article<span class="ot" style="color: #003B4F;
@@ -3137,6 +3185,7 @@ font-style: inherit;">"pub-type"</span>)</span>
 <span id="cb9-17">  </span>
 <span id="cb9-18">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (collection<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span><span class="st" style="color: #20794D;
@@ -3147,6 +3196,7 @@ background-color: null;
 font-style: inherit;">&lt;-</span>collection</span>
 <span id="cb9-20">  }<span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span>{</span>
 <span id="cb9-21">    collection<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -3226,6 +3276,7 @@ background-color: null;
 font-style: inherit;">"-"</span>)</span>
 <span id="cb9-35">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(received_date,<span class="fu" style="color: #4758AB;
@@ -3240,6 +3291,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb9-37">      } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb9-38">        received_date<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -3290,6 +3342,7 @@ font-style: inherit;">"-"</span>)</span>
 <span id="cb9-44">  </span>
 <span id="cb9-45">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">identical</span>(accepted_date,<span class="fu" style="color: #4758AB;
@@ -3304,6 +3357,7 @@ background-color: null;
 font-style: inherit;">"Not available"</span></span>
 <span id="cb9-47">      } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {</span>
 <span id="cb9-48">        accepted_date<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -3345,7 +3399,7 @@ font-style: inherit;">print</span>(count)</span>
 <h3 class="anchored" data-anchor-id="extra">Extra</h3>
 <p>Maybe you are not interested in exploring the whole corpus and just want to work in a sample. To take a sample of 10,000 random articles you can just run the following code:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">sample_articles<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -3359,7 +3413,7 @@ font-style: inherit;">10000</span>)</span></code></pre></div>
 <p>Remember to replace <code>list_of_articles</code> with <code>sample_articles</code> at the start of the loop!</p>
 <p>Similarly, you might want to focus in a particular PLOS journal. We can use the code journal to filter out all the unwanted journals since this code is available in the file name. If for example, we want to target PLOS Biology articles, the code “pbio” will select only this journal:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">PLOS_Biology_articles<span class="ot" style="color: #003B4F;
 background-color: null;
@@ -3386,7 +3440,7 @@ font-style: inherit;">"pbio"</span>,list_of_articles)]</span></code></pre></div>
   <category>R</category>
   <category>Text-mining</category>
   <category>The Strain on Scientific Publishing</category>
-  <guid>https://pgomba.github.io/pgb_website/posts/08_10_23/index.html</guid>
+  <guid>https://pgomba.github.io/pgb_website/posts/08_10_23/</guid>
   <pubDate>Sat, 07 Oct 2023 23:00:00 GMT</pubDate>
   <media:content url="https://pgomba.github.io/pgb_website/posts/08_10_23/thumbn.jpg" medium="image" type="image/jpeg"/>
 </item>
