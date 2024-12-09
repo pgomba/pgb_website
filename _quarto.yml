@@ -19,11 +19,6 @@ website:
       - text: Other
         href: other_outputs.qmd
       - text: Datasets
-        href: datasets.qmd
-      - text: "Presentations"
-        menu:
-          - text: "Can we predict germination?"
-            href: tree_germination_predict.qmd
       - href: https://bsky.app/profile/pagomba.bsky.social
         text: "{{< fa brands bluesky >}}"
       - icon: github
