@@ -1,0 +1,27 @@
+body, .reveal {
+  font-family: 'Roboto', sans-serif !important;
+  color: white; /* Ensure the text is readable in the dark theme */
+}
+
+.reveal .slide-logo {
+  display: block;
+  position: absolute;
+  bottom: unset !important;
+  right: unset !important;
+  top: 5px;
+  left: 86%;
+  height: 100px !important;
+  width: 100x !important;
+  max-width: unset !important;
+  max-height: unset !important
+}
+
+.custom-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.5em;
+  color: #666; /* Optional: customize color */
+}

@@ -10,13 +10,22 @@ website:
       - icon: rss
         href: post.xml
     left:
-      - publications.qmd
-      - post.qmd
-      - r_Packages.qmd
-      - other_outputs.qmd
-      - datasets.qmd
+      - text: Publications
+        href: publications.qmd
+      - text: Blog
+        href: post.qmd
+      - text: R packages
+        href: r_Packages.qmd
+      - text: Other
+        href: other_outputs.qmd
+      - text: Datasets
+        href: datasets.qmd
+      - text: "Presentations"
+        menu:
+          - text: "Can we predict germination?"
+            href: tree_germination_predict.qmd
       - href: https://bsky.app/profile/pagomba.bsky.social
-        text: "{{< fa brands bluesky>}}"
+        text: "{{< fa brands bluesky >}}"
       - icon: github
         href: https://github.com/pgomba
   site-url: 'https://pgomba.github.io/pgb_website'

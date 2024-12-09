@@ -1,0 +1,45 @@
+---
+title: "Can we predict tree seed germination?"
+format: 
+  revealjs:
+    slide-number: true
+    logo: images/kew_logo.png
+    css: logo.css
+    theme: dark
+    editor: visual
+title-slide-attributes:
+  data-background-image: images/crataegus_stack_01.jpg
+  data-background-opacity: "0.5"
+---
+
+## Crops
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+::: custom-footer
+This is the footer for this slide only.
+:::
+
+## Bullets
+
+::: columns
+::: {.column width="40%"}
+![Mustard seeds](images/sinapis.png)
+:::
+
+::: {.column width="60%"}
+-   A
+-   B
+-   C
+-   D
+-   E
+:::
+:::
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
