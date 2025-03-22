@@ -1,5 +1,5 @@
 ---
-title: "How much does a journal weight. A commenary on MDPI's own study on their self-citations rates"
+title: "How much does a journal weight? A commenary on MDPI's own study on their self-citations rates"
 author:
   - name: Pablo Gómez Barreiro
     orcid: 0000-0002-3140-3326
