@@ -1,5 +1,5 @@
 ---
-title: "A brief commentary on `MDPI Self-citations study highlights industry alignment and integrity` blog"
+title: "How much does a journal weight?: A commenary on MDPI's own study on their self-citations rates"
 author:
   - name: Pablo Gómez Barreiro
     orcid: 0000-0002-3140-3326
@@ -19,9 +19,13 @@ A recent [blog](https://blog.alpsp.org/2025/03/mdpi-self-citations-study-highlig
 
 Figure 1 in their blog instantly caught my attention, and my commentary on their blog is mainly around this figure and its interpretation.
 
-![Figure 1 as shown in MDPI's blog, depicting average journal self-citation across top 10 publishers in 2024](mdpi_figure1.png)Figure 1 is easily reproducible thanks to the provided (and well-documented) script, `top_10.py`. However, I’m personally not convinced by the use of a double y-axis, as I fail to understand the possible correlation between the two variables (Total documents vs. average self-citation rates). I’m also a bit surprised by the use of a continuous line between points on a non-continuous x-axis. Since Python is not my native language, I ran the script through ChatGPT to attempt a more understandable translation into R. After making a few tweaks to ChatGPT’s output, I was able to replicate their data analysis and graph (with some small aesthetic adjustments).
+![Figure 1, as seen in original blog](mdpi_figure1.png)
 
-![My attempt to replicate original graph with R. Close enough?](MDPI_graph_with_R.png)In summary, the author's analysis depicts MDPI's ranking as the 6th largest publisher with the most self-citations, in line with other publishers at the end of this top 10.
+Figure 1 is easily reproducible thanks to the provided (and well-documented) script, `top_10.py`. However, I’m personally not convinced by the use of a double y-axis, as I fail to understand the possible correlation between the two variables (Total documents vs. average self-citation rates). I’m also a bit surprised by the use of a continuous line between points on a non-continuous x-axis. Since Python is not my native language, I ran the script through ChatGPT to attempt a more understandable translation into R. After making a few tweaks to ChatGPT’s output, I was able to replicate their data analysis and graph (with some small aesthetic adjustments).
+
+![My attempt to replicated original graph. Good enough?](MDPI_graph_with_R.png)
+
+In summary, the author's analysis depicts MDPI's ranking as the 6th largest publisher with the most self-citations, in line with other publishers at the end of this top 10.
 
 Let me, for the purpose of this commentary, ditch the data of total documents from the graph, focus solely in average self cite rates, and order publishers by average self cite rates instead of total number of docs published. It looks like this:
 
