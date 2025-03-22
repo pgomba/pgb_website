@@ -19,23 +19,27 @@ A recent [blog](https://blog.alpsp.org/2025/03/mdpi-self-citations-study-highlig
 
 Figure 1 in their blog instantly caught my attention, and my commentary on their blog is mainly around this figure and its interpretation.
 
-![Figure 1, as seen in original blog](mdpi_figure1.png)
+![Figure 1, as seen in original blog. Left y-axis represents total documents per publishers in year 2024 (blue columns), while right axis shows average self-citation per publishers in 2024 (orange dots).](mdpi_figure1.png)
 
-Figure 1 is easily reproducible thanks to the provided (and well-documented) script, `top_10.py`. However, I’m personally not convinced by the use of a double y-axis, as I fail to understand the possible correlation between the two variables (Total documents vs. average self-citation rates). I’m also a bit surprised by the use of a continuous line between points on a non-continuous x-axis. Since Python is not my native language, I ran the script through ChatGPT to attempt a more understandable translation into R. After making a few tweaks to ChatGPT’s output, I was able to replicate their data analysis and graph (with some small aesthetic adjustments).
+Figure 1 is easily reproducible thanks to the provided (and well-documented) script, `top_10.py`. Now, I can do a little bit of Python, but I'm less likely to make mistakes in my native language: R. I've teamed up with chatGPT to translate `top_10.py` into `top_10_PGB.R`, and the code necessary to replicate this commentary is available here: The conversion outputs same data as their Table 1 and similar graph (I took the liberty of some aesthetic changes):
 
 ![My attempt to replicated original graph. Good enough?](MDPI_graph_with_R.png)
 
-In summary, the author's analysis depicts MDPI's ranking as the 6th largest publisher with the most self-citations, in line with other publishers at the end of this top 10.
-
-Let me, for the purpose of this commentary, ditch the data of total documents from the graph, focus solely in average self cite rates, and order publishers by average self cite rates instead of total number of docs published. It looks like this:
+Having Total Documents in this graph was masking the information conveyed by Average Self-citation rates. Here is the data for Average self citation rates with publishers rearranged by it.
 
 ![edit caption later](MDPI_redo.png)
 
-However, I've noticed the authors are averaging each journal self-citation rate without considering the total of documents published by each journal, or, in other words, journals with more documents where given the same importance than smaller journals during mean calculations. In this analysis a journal with a handful of papers published in 2024 would contribute to the average self citation rate as much as a large journal. I decide to replicate again the analysis implementing mean weighting. This results in:
+As discussed on the blog, MDPI ranks 6th in self-citation among the largest publishers. However, there is a major issue with how this data has been analyzed: the average self-citation rate was calculated by simply averaging each journal's self-citation rate without accounting for the total number of publications per journal. In other words, every journal contributed equally to the average, regardless of its size.
+
+Here, I present the results of the analysis when the means are weighted by the total number of documents published per journal in 2024:
 
 ![](MDPI_redo_mw.png)
 
-The reanalysis of the data using weighted means moves MDPI from 6th position (with a 14% self-citation rate) to 3rd position (with a 19.7% self-citation rate). Notably, the previous table leaders, OUP and T&F, remain in their respective positions with little change in their final percentages, likely due to the balance of total documents across their journals. This contrasts with the higher threshold of total documents per journal in MDPI.
+Additionally, here is a summary table comparing self-citation rates before and after considering weighted means.
+
+![caption here](table_changes.PNG)
+
+Overall, MDPI is the most affected publisher after applying weighted means. The reanalysis of the data using weighted means moves MDPI from 6th position (with a 14% self-citation rate) to 3rd position (with a 19.7% self-citation rate). Notably, the previous table leaders, OUP and T&F, remain in their respective positions with little change in their final percentages, likely due to the balance of total documents across their journals. This contrasts with the higher threshold of total documents per journal in MDPI, possibly driven by larger journals having higher levels of self citation than smaller ones.
 
 Weighted means present a different perspective on the 2024 self-citation landscape, making it important to analyze them in a multi-publisher context. However, conclusions drawn from both the original and reinterpreted graphs still come with significant caveats:
 
@@ -43,4 +47,4 @@ Weighted means present a different perspective on the 2024 self-citation landsca
 
 2.  Publishers have different balances of natural sciences and humanities in their coverage, and each discipline may exhibit varying self-citation rates.
 
-But, in conclusion, I think these kind of data analysis require the use of weighted means to avoid biases introduced by the disparity of journal size. I would love for MDPI to reattempt this analysis in the future with a better consideration of the caveats mentioned above.
+In conclusion, analyzing self-citation at the publisher level **requires the use of weighted data** to be truly effective, especially to avoid biases introduced by the disparity in journal sizes. I encourage MDPI (and other publishers) to try this approach in further self-analysis of their practices.
