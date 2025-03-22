@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pablo Gómez Barreiro">
-<meta name="dcterms.date" content="2023-10-11">
+<meta name="dcterms.date" content="2025-03-22">
 
-<title>Text-mining a Taylor &amp; Francis journal using R – Pablo Gómez Barreiro</title>
+<title>A brief commentary on MDPI Self-citations study highlights industry alignment and integrity blog – Pablo Gómez Barreiro</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -107,16 +73,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<meta name="quarto:status" content="draft">
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Text-mining a Taylor &amp; Francis journal using R – Pablo Gómez Barreiro">
+<meta property="og:title" content="A brief commentary on MDPI Self-citations study highlights industry alignment and integrity blog – Pablo Gómez Barreiro">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://pgomba.github.io/pgb_website/posts/11_10_23/thumbn.jpg">
+<meta property="og:image" content="https://pgomba.github.io/pgb_website/posts/22_03_25/thumbn.jpg">
 <meta property="og:site_name" content="Pablo Gómez Barreiro">
-<meta name="twitter:title" content="Text-mining a Taylor &amp; Francis journal using R – Pablo Gómez Barreiro">
+<meta name="twitter:title" content="A brief commentary on MDPI Self-citations study highlights industry alignment and integrity blog – Pablo Gómez Barreiro">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://pgomba.github.io/pgb_website/posts/11_10_23/thumbn.jpg">
+<meta name="twitter:image" content="https://pgomba.github.io/pgb_website/posts/22_03_25/thumbn.jpg">
 <meta name="twitter:creator" content="@pagomba">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -124,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -193,13 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Text-mining a Taylor &amp; Francis journal using R</h1>
+<h1 class="title">A brief commentary on <code>MDPI Self-citations study highlights industry alignment and integrity</code> blog</h1>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
-    <div class="quarto-category">rcrossref</div>
-    <div class="quarto-category">Taylor &amp; Francis</div>
-    <div class="quarto-category">Text-mining</div>
-    <div class="quarto-category">The Strain on Scientific Publishing</div>
+    <div class="quarto-category">MDPI</div>
   </div>
   </div>
 
@@ -217,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 11, 2023</p>
+      <p class="date">March 22, 2025</p>
     </div>
   </div>
   
@@ -229,258 +193,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This is the second tutorial/blog exploring some of text-mining/web-scraping methods used on the preprint (<a href="https://arxiv.org/abs/2309.15884">The Strain on Scientific Publishing</a>). Head over to <a href="https://pagomba-blog.netlify.app/posts/08_10_23/">Text-mining PLOS articles using R</a> to read the first instance. Today, I will be focusing on <a href="https://taylorandfrancis.com/">Taylor &amp; Francis</a> (T&amp;F)</p>
-<p>To some extent, Taylor &amp; Francis allows web scraping their website. To do so you have to be a subscriber to their content, have a non-commercial purpose and send a request. This can take some time, and, in the meantime, any web scraping attempts will return an <strong>Error 403</strong> (access forbidden). Fortunately, editorial times of scientific articles from T&amp;F are available on <a href="https://www.crossref.org">Crossref</a>, and their API can be accessed with R using the package <a href="https://CRAN.R-project.org/package=rcrossref"><code>rcrossref</code></a>.</p>
-<section id="step-1-be-polite" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-be-polite">Step 1: Be polite</h3>
-<p><code>rcrossref</code> encourages their users to identify themselves in every query. This is a straight forward process that is well documented <a href="https://github.com/ropensci/rcrossref">here</a>:</p>
+<p>A recent <a href="https://blog.alpsp.org/2025/03/mdpi-self-citations-study-highlights.html">blog</a> published by the Association of Learned and Professional Society Publishers, written by MDPI staff Dr.&nbsp;Giulia Stefenelli and Dr.&nbsp;Enric Sayas, explored MDPI and other publishers self-citations in 2024. In line with MDPI usual transparency, they kindly included the data they used, along with the relevant code in Python.</p>
+<p>Figure 1 in their blog instantly caught my attention, and my commentary on their blog is mainly around this figure and its interpretation.</p>
+<p><img src="mdpi_figure1.png" class="img-fluid" alt="Figure 1 as shown in MDPI’s blog, depicting average journal self-citation across top 10 publishers in 2024">Figure 1 is easily reproducible thanks to the provided (and well-documented) script, <code>top_10.py</code>. However, I’m personally not convinced by the use of a double y-axis, as I fail to understand the possible correlation between the two variables (Total documents vs.&nbsp;average self-citation rates). I’m also a bit surprised by the use of a continuous line between points on a non-continuous x-axis. Since Python is not my native language, I ran the script through ChatGPT to attempt a more understandable translation into R. After making a few tweaks to ChatGPT’s output, I was able to replicate their data analysis and graph (with some small aesthetic adjustments).</p>
+<p><img src="MDPI_graph_with_R.png" class="img-fluid" alt="My attempt to replicate original graph with R. Close enough?">In summary, the author’s analysis depicts MDPI’s ranking as the 6th largest publisher with the most self-citations, in line with other publishers at the end of this top 10.</p>
+<p>Let me, for the purpose of this commentary, ditch the data of total documents from the graph, focus solely in average self cite rates, and order publishers by average self cite rates instead of total number of docs published. It looks like this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/ropensci/rcrossref"><img src="polite.PNG" class="img-fluid figure-img" alt="rcrossref GitHub repository - screenshot"></a></p>
-<figcaption>rcrossref GitHub repository - screenshot</figcaption>
+<p><img src="MDPI_redo.png" class="img-fluid figure-img"></p>
+<figcaption>edit caption later</figcaption>
 </figure>
 </div>
-<p>After restarting your R session, is time to load all necessary libraries</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rcrossref)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="step-2-choosing-a-journal" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-choosing-a-journal">Step 2: Choosing a journal</h3>
-<p><code>rcrossref</code> is going to need a ISSN number to go fetch data. This number is usually available in the journal description page. For this example I´m going to choose the journal <a href="https://www.tandfonline.com/journals/tped20">Plant Ecology &amp; Diversity</a>. The ISSNs (Print and online version) can be found on its <a href="https://www.tandfonline.com/action/journalInformation?journalCode=tped20">Journal Information</a> page: 1755-0874 &amp; 1755-1668.</p>
-<p>To get a hint of what we might find using Crossref data on this journal we can take a peak in <a href="https://www.scimagojr.com/">Scimago</a>. If you type in and search the journal name or the ISSNs there is some useful information. In particular, the total number of documents is of interest. The larger the number of available documents is, the longer obtaining the data from <code>rcrossref</code> will take (and it can get tedious with LARGE requests).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="scimago.PNG" class="img-fluid figure-img"></p>
-<figcaption>Total number of documents for the journal Plant Ecology &amp; Diversity, according to Scimago - screenshot</figcaption>
-</figure>
-</div>
-</section>
-<section id="step-3-go-fetch" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-go-fetch">Step 3: Go fetch!</h3>
-<p>Let´s build now the data request using R code using the <code>rcrossref</code> function <code>cr_works()</code>. I´m going to use the online ISSN (1755-1668) and select only publications published in 2015 and after. If you wish to obtain data from all publications just drop <code>from_pub_date="2015-01-01</code> from the code below. Additionally, we set the parameter <code>cursor</code> to not have a limit in number of articles by just adding an unreasonable high number. For more information on how <code>rcrossref</code> and <code>cr_works()</code> can be used head to their documentation page <a href="https://docs.ropensci.org/rcrossref/index.html">here</a>.</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>journal_info<span class="ot">&lt;-</span><span class="fu">cr_works</span>(<span class="at">filter=</span><span class="fu">c</span>(<span class="at">issn=</span><span class="st">"1755-1668"</span>,<span class="at">from_pub_date=</span><span class="st">"2015-01-01"</span>),<span class="at">cursor =</span> <span class="st">"*"</span>,<span class="at">cursor_max =</span> <span class="dv">500000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>Once the code is running, it might take some minutes for the data to come back. When finished, the object <code>journal_info</code> will be a large list with 3 elements. Let´s have a look to what is inside this object on <strong>Step 4</strong>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="journal_info.PNG" class="img-fluid figure-img"></p>
-<figcaption>journal_info is a large list with 3 elements</figcaption>
-</figure>
-</div>
-</section>
-<section id="step4-unboxing-journal_info" class="level3">
-<h3 class="anchored" data-anchor-id="step4-unboxing-journal_info">Step4: Unboxing “journal_info”</h3>
-<p>Now that we have <code>rcrossref</code> output (<code>journal_info</code>), lets have a look to the elements within. The first element is <code>meta</code>.</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>journal_info<span class="sc">$</span>meta[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>  total_results search_terms start_index items_per_page
-1           338           NA           0             20</code></pre>
-</div>
-</div>
-<p>This is a data frame incicating we have obtained all the Crossref data available for 309 scientific publications.</p>
-<p>This information is contained in the element <code>data</code></p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(journal_info<span class="sc">$</span>data,<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 34
-   alternative.id              container.title created deposited published.print
-   &lt;chr&gt;                       &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;          
- 1 10.1080/17550874.2018.1540… Plant Ecology … 2018-1… 2020-09-… 2018-07-04     
- 2 10.1080/17550874.2018.1471… Plant Ecology … 2018-0… 2020-09-… 2018-03-04     
- 3 10.1080/17550874.2018.1507… Plant Ecology … 2018-0… 2020-09-… 2018-05-04     
- 4 10.1080/17550874.2015.1049… Plant Ecology … 2015-0… 2016-12-… 2015-07-04     
- 5 10.1080/17550874.2024.2422… Plant Ecology … 2024-1… 2025-01-… 2024-07-03     
- 6 10.1080/17550874.2018.1549… Plant Ecology … 2018-1… 2024-07-… 2019-11-02     
- 7 10.1080/17550874.2019.1641… Plant Ecology … 2019-0… 2024-07-… 2019-09-03     
- 8 10.1080/17550874.2015.1123… Plant Ecology … 2016-0… 2024-06-… 2015-11-02     
- 9 10.1080/17550874.2015.1051… Plant Ecology … 2015-0… 2019-08-… 2015-07-04     
-10 10.1080/17550874.2016.1267… Plant Ecology … 2017-0… 2022-07-… 2016-11-01     
-# ℹ 29 more variables: published.online &lt;chr&gt;, doi &lt;chr&gt;, indexed &lt;chr&gt;,
-#   issn &lt;chr&gt;, issue &lt;chr&gt;, issued &lt;chr&gt;, member &lt;chr&gt;, page &lt;chr&gt;,
-#   prefix &lt;chr&gt;, publisher &lt;chr&gt;, score &lt;chr&gt;, source &lt;chr&gt;,
-#   reference.count &lt;chr&gt;, references.count &lt;chr&gt;,
-#   is.referenced.by.count &lt;chr&gt;, title &lt;chr&gt;, type &lt;chr&gt;, update.policy &lt;chr&gt;,
-#   url &lt;chr&gt;, volume &lt;chr&gt;, language &lt;chr&gt;, short.container.title &lt;chr&gt;,
-#   assertion &lt;list&gt;, author &lt;list&gt;, link &lt;list&gt;, reference &lt;list&gt;, …</code></pre>
-</div>
-</div>
-<p>For this journal, this element is a data frame of 35 columns. Notice some of the columns (e.g.&nbsp;<code>assertion</code>) are also data frames (inception). Have a look to what information each column has to offer. Where is the editorial data we are looking for? Well, lets take a peak to the values within the tables of the column <code>assertion</code> in row number 1</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>journal_info<span class="sc">$</span>data<span class="sc">$</span>assertion[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-# A tibble: 5 × 7
-  value                           order name  label URL   group.name group.label
-  &lt;chr&gt;                           &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      
-1 The publishing and review poli…     1 peer… Peer… &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;       
-2 http://www.tandfonline.com/act…     2 aims… Aim … http… &lt;NA&gt;       &lt;NA&gt;       
-3 2018-03-25                          0 rece… Rece… &lt;NA&gt;  publicati… Publicatio…
-4 2018-10-21                          2 acce… Acce… &lt;NA&gt;  publicati… Publicatio…
-5 2018-11-10                          3 publ… Publ… &lt;NA&gt;  publicati… Publicatio…</code></pre>
-</div>
-</div>
-<p>There we go. The date values for editorial times are “hidden” in this table. Let´s clean the data to show this better</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>received_date <span class="ot">&lt;-</span> journal_info<span class="sc">$</span>data<span class="sc">$</span>assertion[<span class="dv">1</span>] <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name<span class="sc">==</span><span class="st">"received"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(value)<span class="sc">%&gt;%</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  .[[<span class="dv">1</span>]]</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>accepted_date <span class="ot">&lt;-</span> journal_info<span class="sc">$</span>data<span class="sc">$</span>assertion[<span class="dv">1</span>] <span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name<span class="sc">==</span><span class="st">"accepted"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(value)<span class="sc">%&gt;%</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  .[[<span class="dv">1</span>]]</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>received_date</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "2018-03-25"</code></pre>
-</div>
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>accepted_date</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "2018-10-21"</code></pre>
-</div>
-</div>
-</section>
-<section id="step-5-looping-to-extract-all-journal-info" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-looping-to-extract-all-journal-info">Step 5: Looping to extract all journal info</h3>
-<p>So far we know how to extract editorial data from one article. Let´s adapt some of the code from the PLOS blog to extract data for all articles in <code>journal_info</code>.</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>final_table<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>count<span class="ot">&lt;-</span><span class="dv">0</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(journal_info<span class="sc">$</span>data)) { <span class="co">#code to loop through each row of the data frame</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  doi<span class="ot">&lt;-</span>journal_info<span class="sc">$</span>data[i,<span class="dv">1</span>]</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  reference_count<span class="ot">&lt;-</span>journal_info<span class="sc">$</span>data[i,<span class="dv">18</span>] <span class="co">#lets add number of references too</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  received_date <span class="ot">&lt;-</span> journal_info<span class="sc">$</span>data<span class="sc">$</span>assertion[i] <span class="sc">%&gt;%</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(name<span class="sc">==</span><span class="st">"received"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(value)<span class="sc">%&gt;%</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    .[[<span class="dv">1</span>]]</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">identical</span>(received_date,<span class="fu">character</span>(<span class="dv">0</span>))) {</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    received_date<span class="ot">&lt;-</span><span class="st">"Not available"</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    received_date<span class="ot">&lt;-</span>received_date}</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  accepted_date <span class="ot">&lt;-</span> journal_info<span class="sc">$</span>data<span class="sc">$</span>assertion[i] <span class="sc">%&gt;%</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(name<span class="sc">==</span><span class="st">"accepted"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(value)<span class="sc">%&gt;%</span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    .[[<span class="dv">1</span>]]</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">identical</span>(accepted_date,<span class="fu">character</span>(<span class="dv">0</span>))) {</span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    accepted_date<span class="ot">&lt;-</span><span class="st">"Not available"</span></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    accepted_date<span class="ot">&lt;-</span>accepted_date}</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>  temp_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(i,doi,received_date,accepted_date,reference_count)</span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>  final_table<span class="ot">&lt;-</span><span class="fu">bind_rows</span>(final_table,temp_df)</span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>  count<span class="ot">&lt;-</span>count<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(count)</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>A quick peek into final_table shows we have now some data we can use in further analysis</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(final_table,<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>    i                alternative.id received_date accepted_date reference.count
-1   1 10.1080/17550874.2018.1540021    2018-03-25    2018-10-21             209
-2   2 10.1080/17550874.2018.1471626    2017-08-29    2018-04-28              68
-3   3 10.1080/17550874.2018.1507053    2017-02-21    2018-07-29              81
-4   4 10.1080/17550874.2015.1049234 Not available Not available              39
-5   5 10.1080/17550874.2024.2422293    2021-04-10    2024-04-25              88
-6   6 10.1080/17550874.2018.1549599    2017-11-21    2018-11-14              67
-7   7 10.1080/17550874.2019.1641756    2018-06-26    2019-07-06              73
-8   8 10.1080/17550874.2015.1123319 Not available Not available              52
-9   9 10.1080/17550874.2015.1051154 Not available Not available              80
-10 10 10.1080/17550874.2016.1267274    2015-08-10    2016-09-01              69
-11 11 10.1080/17550874.2017.1402968    2017-04-14    2017-11-06              37
-12 12 10.1080/17550874.2019.1673496    2019-02-19    2019-09-21              73
-13 13 10.1080/17550874.2024.2430017    2022-11-01    2024-11-12              79
-14 14 10.1080/17550874.2019.1709227    2018-10-04    2019-12-22              67
-15 15 10.1080/17550874.2016.1244575    2016-01-26    2016-09-30              54</code></pre>
-</div>
-</div>
-</section>
-<section id="extra" class="level3">
-<h3 class="anchored" data-anchor-id="extra">Extra</h3>
-<p>Extracting all scientific articles from T&amp;F using Crossref data is possible, but you will need a list (or a vector) containing all ISSNs to be targeted. These can be obtained from Scimago, although many non-indexed journals will be missing. Then, is just a matter of wrapping the above loop into another loop moving across all ISSNs:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> vector_with_ISSNS) {</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  journal_info<span class="ot">&lt;-</span><span class="fu">cr_works</span>(<span class="at">filter=</span><span class="fu">c</span>(<span class="at">issn=</span>i,<span class="at">from_pub_date=</span><span class="st">"2015-01-01"</span>),<span class="at">cursor =</span> <span class="st">"*"</span>,<span class="at">cursor_max =</span> <span class="dv">500000</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> journal_info<span class="sc">$</span>data) {</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">#### etc etc </span><span class="al">###</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Tip">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>It is possible for Crossref to kick you out of their server after too many requests. Edit the loop to start from the last text-mined journal (e.g.&nbsp;<code>for (i in vector_with_ISSNS[200:4000]) {}</code>) to overcome this issue. Or, have a look to how errors can be handled with the function <code>tryCatch()</code>.</p>
-</div>
-</div>
-</section>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References:</h3>
-<p>Chamberlain S, Zhu H, Jahn N, Boettiger C, Ram K (2022). rcrossref: Client for Various ‘CrossRef APIs’. R package version 1.2.0, <a href="https://CRAN.R-project.org/package=rcrossref" class="uri">https://CRAN.R-project.org/package=rcrossref</a>.<br>
-<br>
-Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <a href="https://pagomba-blog.netlify.app/posts/08_10_23/" class="uri">https://pagomba-blog.netlify.app/posts/08_10_23/</a></p>
-<p>Hanson, M. A., Gómez Barreiro, P., Crosetto, P., &amp; Brockington, D. (2023). <em>arXiv</em>. The Strain on Scientific Publishing. <a href="https://arxiv.org/abs/2309.15884" class="uri">https://arxiv.org/abs/2309.15884</a></p>
-<p>Wickham H, et al.&nbsp;(2019) “Welcome to the tidyverse.” <em>Journal of Open Source Software</em>, 4 (43), 1686. doi: <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p>
+<p>However, I’ve noticed the authors are averaging each journal self-citation rate without considering the total of documents published by each journal, or, in other words, journals with more documents where given the same importance than smaller journals during mean calculations. In this analysis a journal with a handful of papers published in 2024 would contribute to the average self citation rate as much as a large journal. I decide to replicate again the analysis implementing mean weighting. This results in:</p>
+<p><img src="MDPI_redo_mw.png" class="img-fluid"></p>
+<p>The reanalysis of the data using weighted means moves MDPI from 6th position (with a 14% self-citation rate) to 3rd position (with a 19.7% self-citation rate). Notably, the previous table leaders, OUP and T&amp;F, remain in their respective positions with little change in their final percentages, likely due to the balance of total documents across their journals. This contrasts with the higher threshold of total documents per journal in MDPI.</p>
+<p>Weighted means present a different perspective on the 2024 self-citation landscape, making it important to analyze them in a multi-publisher context. However, conclusions drawn from both the original and reinterpreted graphs still come with significant caveats:</p>
+<ol type="1">
+<li><p>The time window is limited to 2024. Temporal context is crucial, especially for understanding shifts in self-citation trends in modern publishing.</p></li>
+<li><p>Publishers have different balances of natural sciences and humanities in their coverage, and each discipline may exhibit varying self-citation rates.</p></li>
+</ol>
+<p>But, in conclusion, I think these kind of data analysis require the use of weighted means to avoid biases introduced by the disparity of journal size. I would love for MDPI to reattempt this analysis in the future with a better consideration of the caveats mentioned above.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1787,7 +1787,7 @@ font-style: inherit;">library</span>(rcrossref)</span></code></pre></div>
 <section id="step-3-go-fetch" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-go-fetch">Step 3: Go fetch!</h3>
 <p>Let´s build now the data request using R code using the <code>rcrossref</code> function <code>cr_works()</code>. I´m going to use the online ISSN (1755-1668) and select only publications published in 2015 and after. If you wish to obtain data from all publications just drop <code>from_pub_date="2015-01-01</code> from the code below. Additionally, we set the parameter <code>cursor</code> to not have a limit in number of articles by just adding an unreasonable high number. For more information on how <code>rcrossref</code> and <code>cr_works()</code> can be used head to their documentation page <a href="https://docs.ropensci.org/rcrossref/index.html">here</a>.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_85818a8c9ae02f90d9c52901a47e09fe">
+<div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">journal_info<span class="ot" style="color: #003B4F;
@@ -1843,7 +1843,7 @@ font-style: inherit;">4</span>]</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  total_results search_terms start_index items_per_page
-1           309           NA           0             20</code></pre>
+1           338           NA           0             20</code></pre>
 </div>
 </div>
 <p>This is a data frame incicating we have obtained all the Crossref data available for 309 scientific publications.</p>
@@ -1860,26 +1860,26 @@ background-color: null;
 font-style: inherit;">10</span>)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 35
+<pre><code># A tibble: 10 × 34
    alternative.id              container.title created deposited published.print
    &lt;chr&gt;                       &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;          
- 1 10.1080/17550874.2018.1496… Plant Ecology … 2018-0… 2020-09-… 2018-05-04     
- 2 10.1080/17550874.2019.1641… Plant Ecology … 2019-0… 2020-08-… 2019-09-03     
- 3 10.1080/17550874.2017.1287… Plant Ecology … 2017-0… 2022-07-… 2017-01-02     
- 4 10.1080/17550874.2018.1503… Plant Ecology … 2018-0… 2020-09-… 2018-03-04     
- 5 10.1080/17550874.2019.1709… Plant Ecology … 2020-0… 2020-03-… 2020-01-02     
- 6 10.1080/17550874.2019.1610… Plant Ecology … 2019-0… 2022-09-… 2019-03-04     
- 7 10.1080/17550874.2018.1507… Plant Ecology … 2018-0… 2020-09-… 2018-05-04     
- 8 10.1080/17550874.2019.1593… Plant Ecology … 2019-0… 2020-12-… 2019-03-04     
- 9 10.1080/17550874.2015.1049… Plant Ecology … 2015-0… 2016-12-… 2015-07-04     
-10 10.1080/17550874.2020.1846… Plant Ecology … 2020-1… 2021-08-… 2020-11-01     
-# ℹ 30 more variables: published.online &lt;chr&gt;, doi &lt;chr&gt;, indexed &lt;chr&gt;,
+ 1 10.1080/17550874.2018.1540… Plant Ecology … 2018-1… 2020-09-… 2018-07-04     
+ 2 10.1080/17550874.2018.1471… Plant Ecology … 2018-0… 2020-09-… 2018-03-04     
+ 3 10.1080/17550874.2018.1507… Plant Ecology … 2018-0… 2020-09-… 2018-05-04     
+ 4 10.1080/17550874.2015.1049… Plant Ecology … 2015-0… 2016-12-… 2015-07-04     
+ 5 10.1080/17550874.2024.2422… Plant Ecology … 2024-1… 2025-01-… 2024-07-03     
+ 6 10.1080/17550874.2018.1549… Plant Ecology … 2018-1… 2024-07-… 2019-11-02     
+ 7 10.1080/17550874.2019.1641… Plant Ecology … 2019-0… 2024-07-… 2019-09-03     
+ 8 10.1080/17550874.2015.1123… Plant Ecology … 2016-0… 2024-06-… 2015-11-02     
+ 9 10.1080/17550874.2015.1051… Plant Ecology … 2015-0… 2019-08-… 2015-07-04     
+10 10.1080/17550874.2016.1267… Plant Ecology … 2017-0… 2022-07-… 2016-11-01     
+# ℹ 29 more variables: published.online &lt;chr&gt;, doi &lt;chr&gt;, indexed &lt;chr&gt;,
 #   issn &lt;chr&gt;, issue &lt;chr&gt;, issued &lt;chr&gt;, member &lt;chr&gt;, page &lt;chr&gt;,
 #   prefix &lt;chr&gt;, publisher &lt;chr&gt;, score &lt;chr&gt;, source &lt;chr&gt;,
 #   reference.count &lt;chr&gt;, references.count &lt;chr&gt;,
-#   is.referenced.by.count &lt;chr&gt;, subject &lt;chr&gt;, title &lt;chr&gt;, type &lt;chr&gt;,
-#   update.policy &lt;chr&gt;, url &lt;chr&gt;, volume &lt;chr&gt;, language &lt;chr&gt;,
-#   short.container.title &lt;chr&gt;, assertion &lt;list&gt;, author &lt;list&gt;, …</code></pre>
+#   is.referenced.by.count &lt;chr&gt;, title &lt;chr&gt;, type &lt;chr&gt;, update.policy &lt;chr&gt;,
+#   url &lt;chr&gt;, volume &lt;chr&gt;, language &lt;chr&gt;, short.container.title &lt;chr&gt;,
+#   assertion &lt;list&gt;, author &lt;list&gt;, link &lt;list&gt;, reference &lt;list&gt;, …</code></pre>
 </div>
 </div>
 <p>For this journal, this element is a data frame of 35 columns. Notice some of the columns (e.g.&nbsp;<code>assertion</code>) are also data frames (inception). Have a look to what information each column has to offer. Where is the editorial data we are looking for? Well, lets take a peak to the values within the tables of the column <code>assertion</code> in row number 1</p>
@@ -1901,9 +1901,9 @@ font-style: inherit;">1</span>]</span></code></pre></div>
   &lt;chr&gt;                           &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      
 1 The publishing and review poli…     1 peer… Peer… &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;       
 2 http://www.tandfonline.com/act…     2 aims… Aim … http… &lt;NA&gt;       &lt;NA&gt;       
-3 2018-01-13                          0 rece… Rece… &lt;NA&gt;  publicati… Publicatio…
-4 2018-06-30                          2 acce… Acce… &lt;NA&gt;  publicati… Publicatio…
-5 2018-07-19                          3 publ… Publ… &lt;NA&gt;  publicati… Publicatio…</code></pre>
+3 2018-03-25                          0 rece… Rece… &lt;NA&gt;  publicati… Publicatio…
+4 2018-10-21                          2 acce… Acce… &lt;NA&gt;  publicati… Publicatio…
+5 2018-11-10                          3 publ… Publ… &lt;NA&gt;  publicati… Publicatio…</code></pre>
 </div>
 </div>
 <p>There we go. The date values for editorial times are “hidden” in this table. Let´s clean the data to show this better</p>
@@ -1981,14 +1981,14 @@ font-style: inherit;">1</span>]]</span>
 <span id="cb9-13">received_date</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2018-01-13"</code></pre>
+<pre><code>[1] "2018-03-25"</code></pre>
 </div>
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">accepted_date</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2018-06-30"</code></pre>
+<pre><code>[1] "2018-10-21"</code></pre>
 </div>
 </div>
 </section>
@@ -2192,21 +2192,21 @@ font-style: inherit;">15</span>)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>    i                alternative.id received_date accepted_date reference.count
-1   1 10.1080/17550874.2018.1496365    2018-01-13    2018-06-30              57
-2   2 10.1080/17550874.2019.1641756    2018-06-26    2019-07-06              73
-3   3 10.1080/17550874.2017.1287224    2016-07-07    2017-01-23              58
-4   4 10.1080/17550874.2018.1503843 Not available Not available               0
-5   5 10.1080/17550874.2019.1709227    2018-10-04    2019-12-22              67
-6   6 10.1080/17550874.2019.1610915    2018-06-20    2019-04-13              55
-7   7 10.1080/17550874.2018.1507054    2017-11-29    2018-07-29              36
-8   8 10.1080/17550874.2019.1593544    2017-01-09    2019-02-06              73
-9   9 10.1080/17550874.2015.1049234 Not available Not available              39
-10 10 10.1080/17550874.2020.1846218    2018-01-08    2020-10-27             102
-11 11 10.1080/17550874.2022.2122753    2021-12-20    2022-09-05             128
-12 12 10.1080/17550874.2022.2160674    2022-06-20    2022-12-16              57
-13 13 10.1080/17550874.2019.1626509    2018-10-29    2019-05-24              99
-14 14 10.1080/17550874.2019.1613696    2018-11-18    2019-04-27              65
-15 15 10.1080/17550874.2016.1261950    2016-06-16    2016-11-14              46</code></pre>
+1   1 10.1080/17550874.2018.1540021    2018-03-25    2018-10-21             209
+2   2 10.1080/17550874.2018.1471626    2017-08-29    2018-04-28              68
+3   3 10.1080/17550874.2018.1507053    2017-02-21    2018-07-29              81
+4   4 10.1080/17550874.2015.1049234 Not available Not available              39
+5   5 10.1080/17550874.2024.2422293    2021-04-10    2024-04-25              88
+6   6 10.1080/17550874.2018.1549599    2017-11-21    2018-11-14              67
+7   7 10.1080/17550874.2019.1641756    2018-06-26    2019-07-06              73
+8   8 10.1080/17550874.2015.1123319 Not available Not available              52
+9   9 10.1080/17550874.2015.1051154 Not available Not available              80
+10 10 10.1080/17550874.2016.1267274    2015-08-10    2016-09-01              69
+11 11 10.1080/17550874.2017.1402968    2017-04-14    2017-11-06              37
+12 12 10.1080/17550874.2019.1673496    2019-02-19    2019-09-21              73
+13 13 10.1080/17550874.2024.2430017    2022-11-01    2024-11-12              79
+14 14 10.1080/17550874.2019.1709227    2018-10-04    2019-12-22              67
+15 15 10.1080/17550874.2016.1244575    2016-01-26    2016-09-30              54</code></pre>
 </div>
 </div>
 </section>
@@ -2288,7 +2288,6 @@ Tip
 Gómez Barreiro, P. (2023). Text-mining PLOS articles using R. <a href="https://pagomba-blog.netlify.app/posts/08_10_23/" class="uri">https://pagomba-blog.netlify.app/posts/08_10_23/</a></p>
 <p>Hanson, M. A., Gómez Barreiro, P., Crosetto, P., &amp; Brockington, D. (2023). <em>arXiv</em>. The Strain on Scientific Publishing. <a href="https://arxiv.org/abs/2309.15884" class="uri">https://arxiv.org/abs/2309.15884</a></p>
 <p>Wickham H, et al.&nbsp;(2019) “Welcome to the tidyverse.” <em>Journal of Open Source Software</em>, 4 (43), 1686. doi: <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p>
-<p><br> Last update: 18 Nov 2023</p>
 
 
 </section>
@@ -3430,7 +3429,6 @@ font-style: inherit;">"pbio"</span>,list_of_articles)]</span></code></pre></div>
 <p>Hanson, M. A., Gómez Barreiro, P., Crosetto, P., &amp; Brockington, D. (2023). <em>arXiv</em>. The Strain on Scientific Publishing. <a href="https://arxiv.org/abs/2309.15884" class="uri">https://arxiv.org/abs/2309.15884</a></p>
 <p>Wickham H (2022). rvest: Easily Harvest (Scrape) Web Pages. R package version 1.0.3. <a href="https://CRAN.R-project.org/package=rvest" class="uri">https://CRAN.R-project.org/package=rvest</a></p>
 <p>Wickham H, et al.&nbsp;(2019) “Welcome to the tidyverse.” <em>Journal of Open Source Software</em>, 4 (43), 1686. doi: <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p>
-<p>Last update: 18 Nov 2023</p>
 
 
 </section>
