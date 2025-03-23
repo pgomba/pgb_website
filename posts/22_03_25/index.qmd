@@ -29,6 +29,10 @@ Having Total Documents in this graph was masking the information conveyed by Ave
 
 ![Graph showing average self-citation values (2024) from Blog's Figure 1 by publishers arranged by rate valueverage self-citing rate values.](MDPI_redo.png)
 
+::: column-margin
+![Quote from MDPI's self assessment on self-citation rates](quote.png){width="300"}
+:::
+
 As discussed on the blog, MDPI ranks 6th in self-citation among the largest publishers. However, there is a major issue with how this data has been analyzed: the average self-citation rate was calculated by simply averaging each journal's self-citation rate without accounting for the total number of publications per journal. In other words, every journal contributed equally to the average, regardless of its size.
 
 Here, I present the results of the analysis when the means are weighted by the total number of documents published per journal in 2024:

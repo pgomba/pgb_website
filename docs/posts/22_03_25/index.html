@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
@@ -154,9 +154,11 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -215,7 +217,15 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Graph showing average self-citation values (2024) from Blog’s Figure 1 by publishers arranged by rate valueverage self-citing rate values.</figcaption>
 </figure>
 </div>
-<p>As discussed on the blog, MDPI ranks 6th in self-citation among the largest publishers. However, there is a major issue with how this data has been analyzed: the average self-citation rate was calculated by simply averaging each journal’s self-citation rate without accounting for the total number of publications per journal. In other words, every journal contributed equally to the average, regardless of its size.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="quote.png" class="img-fluid figure-img" width="300"></p>
+<figcaption>Quote from MDPI’s self assessment on self-citation rates</figcaption>
+</figure>
+</div>
+</div></div><p>As discussed on the blog, MDPI ranks 6th in self-citation among the largest publishers. However, there is a major issue with how this data has been analyzed: the average self-citation rate was calculated by simply averaging each journal’s self-citation rate without accounting for the total number of publications per journal. In other words, every journal contributed equally to the average, regardless of its size.</p>
 <p>Here, I present the results of the analysis when the means are weighted by the total number of documents published per journal in 2024:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
