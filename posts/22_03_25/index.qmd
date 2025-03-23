@@ -39,7 +39,11 @@ Additionally, here is a summary table comparing self-citation rates before and a
 
 ![Table showing original and corrected (weighted) self-citation rates (2024) in %, along with difference between these values](table_changes.PNG){fig-align="center"}
 
-Overall, MDPI is the most affected publisher after applying weighted means. The reanalysis of the data using weighted means moves MDPI from 6th position (with a 14% self-citation rate) to 3rd position (with a 19.7% self-citation rate). Notably, the previous table leaders, OUP and T&F, remain in their respective positions with little change in their final percentages, likely due to the balance of total documents across their journals. This contrasts with the higher threshold of total documents per journal in MDPI, possibly driven by larger journals having higher levels of self citation than smaller ones.
+Overall, MDPI is the most affected publisher after applying weighted means. The reanalysis of the data using weighted means moves MDPI from 6th position (with a 14% self-citation rate) to 3rd position (with a 19.7% self-citation rate). Notably, the previous table leaders, OUP and T&F, remain in their respective positions with little change in their final percentages, likely due to the balance of total documents across their journals. This contrasts with the higher threshold of total documents per journal in MDPI, possibly driven by larger journals having higher levels of self citation than smaller ones. Lets find out:
+
+![MDPI individual journals plotted by total number of articles published in 2024 (x-axis) and self-citing rate % (y-axis](MDPI_scr.png){fig-align="center"}
+
+The data shows that, out of the 237 selected journals, 57 have a self-citation rate over 20%, although only 25 have more than 1,000 articles published in 2024. Therefore higher self-citation rates when weighted means are applied are driven by megajournals such as IJMS, Applied Scieces, Sustainability, etc.
 
 Weighted means present a different perspective on the 2024 self-citation landscape, making it important to analyze them in a multi-publisher context. However, conclusions drawn from both the original and reinterpreted graphs still come with significant caveats:
 
