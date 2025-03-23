@@ -2,6 +2,7 @@ library(tidyverse)
 library(ggtext)
 library(gt)
 library(gtExtras)
+library(ggrepel)
 
 ## PART I: Python to R translation
 
@@ -182,3 +183,39 @@ table<-left_join(orig_tp,wm_tp,by=c("Publisher", "Total Documents"))%>%
   )
 
 table
+
+## MDPI jourlans self-citation rates 2024
+
+highlight_journals <- c("RELIGIONS","SEXES","IJMS",
+                        
+                        "APPLIED SCIENCES","SUSTAINABILITY","SENSORS","GENEALOGY","ARTS",
+                        "LANGUAGES","JCM", "ENERGIES","MATERIALS") 
+
+data%>%
+  filter(Publisher=="MDPI")%>%
+  
+  ggplot(.,aes(x=`Web of Science Documents`,y=`Self Citation Rate` ,size=`Web of Science Documents`,fill = `Self Citation Rate`))+
+  geom_point(shape=21,colour="black",alpha=.9)+
+  geom_text_repel(data = data %>%
+                    filter(Publisher=="MDPI")%>%
+                    mutate(Name=ifelse(grepl("INTERNATIONAL JOURNAL OF MOLECULAR SCIENCES",Name),"IJMS",Name),
+                           Name=ifelse(grepl("APPLIED SCIENCES-BASEL",Name),"APPLIED SCIENCES",Name),
+                           Name=ifelse(grepl("JOURNAL OF CLINICAL MEDICINE",Name),"JCM",Name))%>%
+                    filter(Name %in% highlight_journals),
+                    
+            aes(label = Name), size = 3,point.padding = 5) + 
+  labs(x="Articles in 2024",
+       title = "MDPI self-citation rates (2024)",
+       size="Total articles",
+       fill="SCR")+
+  scale_y_continuous(labels=scales::label_percent())+
+  scale_fill_viridis_c()+
+  theme_minimal() +
+  theme(text = element_text(size=16),
+        plot.background = element_rect(fill="white"),
+        legend.position = c(.7,.8),
+        legend.direction = "horizontal",
+        legend.title = element_text(size=10),
+        legend.text = element_text(size=10))
+
+ggsave("MDPI_scr.png",dpi="retina")  
