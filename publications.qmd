@@ -2,9 +2,32 @@
 title: "Publications"
 ---
 
+## 2025
+
+**Gómez Barreiro, P**., Hudson, A. R., Hay, F. R., & Adams, J. (2025). LiCl Calc: tools to use lithium chloride solutions to control relative humidity in seed experiments. *Seed Science and Technology*. [Link](https://kew.iro.bl.uk/concern/articles/0bb1e277-896e-49a4-960e-57b355efe2a0) [App](https://pagoba.shinyapps.io/LiClcalc/)
+
+**Barreiro, P. G.**, Richard-Bollans, A., Mattana, E., Seal, C. E., Chapman, T., & Dayrell, R. (2025). Enhancing tree seed germination prediction with image-driven machine learning models. *bioRxiv*, 2025-01. [Link](https://www.biorxiv.org/content/10.1101/2025.01.21.634084v1)
+
+Visscher, A. M., **Gómez Barreiro, P**., Soto Gomez, M., Carta, A., Liu, U., Wu, Y., ... & Pritchard, H. W. (2025). Global variation in seed covering structure hardness of woody species with orthodox seeds. *Annals of Botany*, mcaf027. [Link](https://academic.oup.com/aob/article/136/2/419/8044980)
+
+Gargiulo, R., Hoban, S., Visscher, A. M., **Gómez Barreiro, P**., Dayrell, R. L., Dhanjal‐Adams, K. L., ... & Hardwick, K. A. (2025). The
+potential of seedbank digital information in plant conservation. *Plants, People, Planet*. [Link](https://nph.onlinelibrary.wiley.com/doi/full/10.1002/ppp3.70017)
+
+Negri, I. S., **Gómez Barreiro, P**., Cockel, C., & Chapman, T. (2025). Factors affecting the vegetative propagation of ash (Fraxinus excelsior L.) from semi-hardwood and hardwood cuttings. *New Forests*, *56*(4), 42. [Link](https://link.springer.com/article/10.1007/s11056-025-10103-y)
+
+## 2024
+
 Hanson, M. A., **Barreiro, P. G**., Crosetto, P., & Brockington, D. (2024). The strain on scientific publishing. *Quantitative Science Studies*, 1-21.[Link](https://direct.mit.edu/qss/article/doi/10.1162/qss_a_00327/124269) [Project Website](https://the-strain-on-scientific-publishing.github.io/website/) [Preprint](https://arxiv.org/abs/2309.15884)
 
+Chávez-Hernández, M. G., **Gómez-Barreiro, P**., White, J. D. M., & Way, M. (2024). Sonoran Desert ex situ conservation gap analysis: charting the path towards conservation. *bioRxiv*, 2024-11. [Link](https://www.biorxiv.org/content/10.1101/2024.11.06.622087v1)
+
 Castillo-Lorenzo, E., Breman, E., **Gómez Barreiro, P.**, & Viruel, J. (2024). Current status of global conservation and characterisation of wild and cultivated Brassicaceae genetic resources. *GigaScience*, *13*, giae050. [Link](https://academic.oup.com/gigascience/article/doi/10.1093/gigascience/giae050/7728957)
+
+## 2023
+
+¯\\\_(ツ)\_/¯
+
+## 2022
 
 Castillo-Lorenzo, E., Peguero, B., Jiménez, F., Encarnación, W., **Gómez Barreiro, P**., Clase, T., García, R., Ulian, T. (2022). Árboles autóctonos de la República dominicana: conservación de semillas y propagación para una reforestación sustentable. [Link](https://pgomba.github.io/arbolesRD/)
 
@@ -12,13 +35,19 @@ Lamont, B., **Gómez Barreiro, P**., Newton, R. J. (2022). Seed-coat thickness e
 
 **Gómez Barreiro, P**., Mattana, E., Coleshill, D., Castillo-Lorenzo, E., Sanogo, S., Wilkin, P., & Ulian, T. (2022). The role of fruit traits on the germination of *Mesosphaerum suaveolens* and *Cantinoa americana* (Lamiaceae), two pesticidal plant species. *Scientia Horticulturae*, 295, 110839. [Link](https://www.sciencedirect.com/science/article/abs/pii/S0304423821009468)
 
+## 2021
+
 Visscher, A. M., Frances, A. L., Yeo, M., Yan, J., Colville, L., **Gómez Barreiro, P**., & Pritchard, H. W. (2021). Comparative analyses of extreme dry seed thermotolerance in five Cactaceae species. *Environmental and Experimental Botany*, 188, 104514. [Link](https://www.sciencedirect.com/science/article/abs/pii/S0098847221001441)
 
 Newton, R. J., Mackenzie, B. D., Lamont, B. B., **Gómez Barreiro, P**., Cowling, R. M., & He, T. (2021). Fire-mediated germination syndromes in *Leucadendron* (Proteaceae) and their functional correlates. *Oecologia*, 196(2), 589-604. [Link](https://link.springer.com/article/10.1007/s00442-021-04947-2)
 
 Mattana, E., **Gómez Barreiro, P**., Hani, N. Y., Abulaila, K., & Ulian, T. (2021). Physiological and environmental control of seed germination timing in Mediterranean mountain populations of *Gundelia tournefortii*. *Plant Growth Regulation*, 1-10. [Link](https://link.springer.com/article/10.1007/s10725-021-00717-5)
 
+## 2020
+
 Mattana, E., Peguero, B., Di Sacco, A., Agramonte, W., Encarnación Castillo, W. R., Jiménez, F., ... & Ulian, T. (2020). Assessing seed desiccation responses of native trees in the Caribbean. *New Forests*, 51(4), 705-721. [Link](https://link.springer.com/article/10.1007/s11056-019-09753-6)
+
+## 2019
 
 **Gómez Barreiro, P**., Otieno, V., Mattana, E., Castillo-Lorenzo, E., Omondi, W., & Ulian, T. (2019). Interaction of functional and environmental traits on seed germination of the multipurpose tree *Flacourtia indica*. *South African Journal of Botany*, 125, 427-433. [Link](https://www.sciencedirect.com/science/article/pii/S0254629919307902)
 
@@ -26,8 +55,12 @@ Mattana, E., **Gómez Barreiro, P**., Lötter, M., Hankey, A. J., Froneman, W., 
 
 Ulian, T., Flores, C., Lira, R., Mamatsharaga, A., Mogotsi, K. K., Muthoka, P., ... & Mattana, E. (2019). Wild plants for a sustainable future. Kew Publishing. [PDF](https://www.google.com/search?client=firefox-b-d&q=Wild+plants+for+a+sustainable+future+kew), [Hard copy](https://shop.kew.org/wild-plants-for-a-sustainable-future)
 
+## 2018
+
 Visscher, A. M., Yeo, M., **Gómez Barreiro, P**., Stuppy, W., Frances, A. L., Di Sacco, A., ... & Pritchard, H. W. (2018). Dry heat exposure increases hydrogen peroxide levels and breaks physiological seed coat-imposed dormancy in *Mesembryanthemum crystallinum* (Aizoaceae) seeds. *Environmental and Experimental Botany*, 155, 272-280. [Link](https://www.sciencedirect.com/science/article/abs/pii/S0098847218308694)
 
 Mattana, E., Sacande, M., Bradamante, G., **Gómez Barreiro, P**., Sanogo, S., & Ulian, T. (2018). Understanding biological and ecological factors affecting seed germination of the multipurpose tree *Anogeissus leiocarpa*. *Plant Biology*, 20(3), 602-609. [Link](https://onlinelibrary.wiley.com/doi/abs/10.1111/plb.12702)
+
+## 2017
 
 Mattana, E., Sacande, M., Sanogo, K. A., Lira, R., **Gómez Barreiro, P**., Rogledi, M., & Ulian, T. (2017). Thermal requirements for seed germination of underutilized *Lippia* species. *South African Journal of Botany*, 109, 223-230. [Link](https://www.sciencedirect.com/science/article/pii/S0254629916300424)

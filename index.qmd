@@ -14,8 +14,6 @@ about:
       href: https://github.com/pgomba
 ---
 
-## Welcome
+## Hi there!
 
-Hi there!
-
-I'm Pablo, a multi-skilled Agricultural Engineer with a Plant Breeding MSc and +10 years of experience in the Plant & Seed Science sector. Currently working as a Seed Biology Lab. Technician at the [Millennium Seed Bank](https://www.kew.org/wakehurst/whats-at-wakehurst/millennium-seed-bank) (Royal Botanic Gardens, Kew) doing laboratory maintenance, specialized training & seed science. I have a keen interest for R programming, science integrity and macro photography.\
+I'm Pablo, a multi-skilled Agricultural Engineer with a Plant Breeding MSc and +15 years of experience in the Plant & Seed Science sector. I currently serve as the Technical Manager at [Wakehurst](https://www.kew.org/wakehurst)/ [Millennium Seed Bank](https://www.kew.org/wakehurst/whats-at-wakehurst/millennium-seed-bank), where I oversee the scientific facilities. When time allows, I enjoy automating processes using R and other tools, data mining for better science ([here](https://direct.mit.edu/qss/article/5/4/823/124269/The-strain-on-scientific-publishing) [here](https://arxiv.org/abs/2511.04820)), and exploring macro photography.\
